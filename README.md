@@ -3,14 +3,14 @@
 
 Standard roulette game of chance.
 
+Useful links :
+1. Read more about roulette: https://fan-casino.ru/roulette/pravila-igry.html.
+2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
+
 ## Contains
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 3. ConsoleCasino - ConsoleCasino - a small roulette with reduced functionality on the console.
-
-Useful links :
-1. Read more about roulette: https://fan-casino.ru/roulette/pravila-igry.html.
-2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
 
 ## Requirements
 - *.NET 7.0*

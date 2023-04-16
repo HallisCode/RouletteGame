@@ -7,6 +7,11 @@ Useful links :
 1. Read more about roulette: https://fan-casino.ru/roulette/pravila-igry.html.
 2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
 
+## Contains
+1. RouletteLib - the roulette library itself.
+2. Casino - graphic implementation of roulette on wpf.
+3. ConsoleCasino - a small roulette with reduced functionality on the console.
+
 ## RouletteLib : MVP Example
 
 ```
@@ -27,11 +32,6 @@ rouletteManager.Spin();
 
 Console.WriteLine(rate.status + " " + rate.winningAmount + " " + user.money);
 ```
-
-## Contains
-1. RouletteLib - the roulette library itself.
-2. Casino - graphic implementation of roulette on wpf.
-3. ConsoleCasino - a small roulette with reduced functionality on the console.
 
 ## Requirements
 - *.NET 7.0*

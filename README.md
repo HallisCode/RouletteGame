@@ -9,6 +9,7 @@ Useful links :
 
 ## RouletteLib : MVP Example
 
+```
 #using RoulutteLib
 
 RouletteManager rouletteManager = new RouletteManager();
@@ -25,7 +26,7 @@ rouletteManager.Spin();
 
 
 Console.WriteLine(rate.status + " " + rate.winningAmount + " " + user.money);
-
+```
 
 ## Contains
 1. RouletteLib - the roulette library itself.

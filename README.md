@@ -7,6 +7,26 @@ Useful links :
 1. Read more about roulette: https://fan-casino.ru/roulette/pravila-igry.html.
 2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
 
+## RouletteLib : MVP Example
+
+#using RoulutteLib
+
+RouletteManager rouletteManager = new RouletteManager();
+
+RouletteUser user = new RouletteUser("Name", "LastName", 10000);
+
+
+Rate rate = user.CreateRate(ExternalRate.Red, 1000);
+
+rouletteManager.AcceptBet(rate);
+
+
+rouletteManager.Spin();
+
+
+Console.WriteLine(rate.status + " " + rate.winningAmount + " " + user.money);
+
+
 ## Contains
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.

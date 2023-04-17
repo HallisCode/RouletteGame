@@ -12,5 +12,26 @@ Useful links :
 2. Casino - graphic implementation of roulette on wpf.
 3. ConsoleCasino - a small roulette with reduced functionality on the console.
 
+## RouletteLib : MVP Example
+
+```
+#using RoulutteLib
+
+RouletteManager rouletteManager = new RouletteManager();
+
+RouletteUser user = new RouletteUser("Name", "LastName", 10000);
+
+
+Rate rate = user.CreateRate(ExternalRate.Red, 1000);
+
+rouletteManager.AcceptBet(rate);
+
+
+rouletteManager.Spin();
+
+
+Console.WriteLine(rate.status + " " + rate.winningAmount + " " + user.money);
+```
+
 ## Requirements
 - *.NET 7.0*

@@ -4,24 +4,6 @@ using System.Linq;
 
 namespace RouletteLib
 {
-	public enum DomesticRate
-	{
-		StraightUp,
-		Split,
-		Street,
-		SixLine,
-		Corner,
-		FirstFour
-	}
-
-	public enum ExternalRate
-	{
-		Red, Black,
-		Even, Odd,
-		SmallFigures, LargeFigures,
-		Dozen1, Dozen2, Dozen3,
-		Column1, Column2, Column3,
-	}
 
 	/// <summary>
 	/// Описывает менеджер рулетки, который управляет всеми ее процессами.
@@ -96,7 +78,7 @@ namespace RouletteLib
 
 		protected void ExternalRateHandler(RateExternal rateExternal, int winningCell, out bool win, out decimal multiplier)
 		{
-			switch (rateExternal.typeRate)
+			switch (rateExternal.type)
 			{
 				case (ExternalRate.Red):
 
@@ -224,7 +206,7 @@ namespace RouletteLib
 
 		public int Spin()
 		{
-			return _random.Next(Cells.allCells.Min(), Cells.allCells.Max() + 1);
+			return _random.Next(cells.Min(), cells.Max() + 1);
 		}
 	}
 }

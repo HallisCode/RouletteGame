@@ -32,7 +32,7 @@ namespace Test
 			RouletteManager rouletteManager = new RouletteManager();
 
 			RouletteUser user = new RouletteUser("Andrew", "Atamanov", 10000m);
-
+			
 
 			while (true)
 			{

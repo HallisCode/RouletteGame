@@ -10,6 +10,25 @@ namespace RouletteLib
 		Loss
 	}
 
+	public enum DomesticRate
+	{
+		StraightUp,
+		Split,
+		Street,
+		SixLine,
+		Corner,
+		FirstFour
+	}
+
+	public enum ExternalRate
+	{
+		Red, Black,
+		Even, Odd,
+		SmallFigures, LargeFigures,
+		Dozen1, Dozen2, Dozen3,
+		Column1, Column2, Column3,
+	}
+
 
 	/// <summary>
 	/// Описывает абстрактную ставку в рулетке.
@@ -46,12 +65,12 @@ namespace RouletteLib
 	/// </summary>
 	public class RateExternal : Rate
 	{
-		public ExternalRate typeRate { get; private set; }
+		public ExternalRate type { get; private set; }
 
 		internal RateExternal(RouletteUser ownerRate, ExternalRate foreignRate, decimal rate)
 			: base(ownerRate, rate)
 		{
-			this.typeRate = foreignRate;
+			this.type = foreignRate;
 		}
 	}
 
@@ -60,12 +79,13 @@ namespace RouletteLib
 	/// </summary>
 	public class RateDomestic : Rate
 	{
-		public DomesticRate typeRate { get; private set; }
+		public DomesticRate type { get; private set; }
+
 
 		internal RateDomestic(RouletteUser ownerRate, DomesticRate domesticRate, decimal rate)
 			: base(ownerRate, rate)
 		{
-			this.typeRate = domesticRate;
+			this.type = domesticRate;
 		}
 	}
 }

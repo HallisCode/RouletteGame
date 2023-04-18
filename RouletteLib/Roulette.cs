@@ -8,16 +8,21 @@ namespace RouletteLib
 	/// <summary>
 	/// Описывает менеджер рулетки, который управляет всеми ее процессами.
 	/// </summary>
-	public class RouletteManager
+	public class Table
 	{
 		public Roulette roulette { get; private set; } = new Roulette();
 
 		public Rate? rate { get; private set; }
 
 
-		public void AcceptTheBet(Rate rate)
+		public void CreateRate(Player owner, ExternalRate foreignRate, decimal money)
 		{
-			this.rate = rate;
+			rate = new RateExternal(owner: owner, foreignRate: foreignRate, money: money);
+		}
+
+		public void CreateRate(Player owner, DomesticRate domesticRate, decimal money)
+		{
+			rate = new RateDomestic(owner: owner, domesticRate: domesticRate, money: money);
 		}
 
 		/// <summary>

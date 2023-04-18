@@ -35,7 +35,7 @@ namespace RouletteLib
 	/// </summary>
 	public abstract class Rate
 	{
-		public RouletteUser owner { get; protected set; }
+		public Player owner { get; protected set; }
 
 		public decimal rate { get; protected set; }
 
@@ -44,19 +44,19 @@ namespace RouletteLib
 		public decimal winningAmount { get; internal set; }
 
 
-		protected Rate(RouletteUser ownerRate, decimal rate)
+		protected Rate(Player owner, decimal money)
 		{
-			if (ownerRate is null) throw new Exception("Пользователь не может быть null.");
+			if (owner is null) throw new Exception("Пользователь не может быть null.");
 
-			if (rate <= 0) throw new Exception("Неккоректная сумма ставки");
+			if (money <= 0) throw new Exception("Неккоректная сумма ставки");
 
-			if (ownerRate.money < rate) throw new Exception("Недостаточно средств у пользователя.");
+			if (owner.money < money) throw new Exception("Недостаточно средств у пользователя.");
 
-			this.owner = ownerRate;
+			this.owner = owner;
 
-			this.owner.money -= rate;
+			this.owner.money -= money;
 
-			this.rate = rate;
+			this.rate = money;
 		}
 	}
 
@@ -67,8 +67,8 @@ namespace RouletteLib
 	{
 		public ExternalRate type { get; private set; }
 
-		internal RateExternal(RouletteUser ownerRate, ExternalRate foreignRate, decimal rate)
-			: base(ownerRate, rate)
+		internal RateExternal(Player owner, ExternalRate foreignRate, decimal money)
+			: base(owner, money)
 		{
 			this.type = foreignRate;
 		}
@@ -82,8 +82,8 @@ namespace RouletteLib
 		public DomesticRate type { get; private set; }
 
 
-		internal RateDomestic(RouletteUser ownerRate, DomesticRate domesticRate, decimal rate)
-			: base(ownerRate, rate)
+		internal RateDomestic(Player owner, DomesticRate domesticRate, decimal money)
+			: base(owner, money)
 		{
 			this.type = domesticRate;
 		}

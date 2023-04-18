@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Project777
+namespace Casino
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

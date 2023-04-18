@@ -1,12 +1,22 @@
-﻿<Window x:Class="Project777.MainWindow"
+﻿<Window x:Class="Casino.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Project777"
+        xmlns:local="clr-namespace:Casino"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-
+        <Image x:Name="Wheel" Source="{StaticResource wheel}" Margin="10,10,376,10" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="Spin" Content="Spin" HorizontalAlignment="Left" Height="110" Margin="510,144,0,0" VerticalAlignment="Top" Width="200" FontSize="36" Click="Spin_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="34" Fill="Black" Margin="200,0,0,0"/>
     </Grid>
 </Window>

@@ -51,6 +51,7 @@ namespace RouletteLib
 					win = false;
 
 					multiplier = 0m;
+
 					break;
 			}
 

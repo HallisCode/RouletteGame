@@ -18,20 +18,15 @@ Useful links :
 ```
 #using RoulutteLib
 
-RouletteManager rouletteManager = new RouletteManager();
+Table table = new RouletteManager();
 
-RouletteUser user = new RouletteUser("Name", "LastName", 10000);
-
-
-Rate rate = user.CreateRate(ExternalRate.Red, 1000);
-
-rouletteManager.AcceptBet(rate);
+Rate rate = table.Bate(TypeExternalRate.Red, 1000);
 
 
-rouletteManager.Spin();
+table.Spin();
 
 
-Console.WriteLine(rate.status + " " + rate.winningAmount + " " + user.money);
+Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
 ## Requirements

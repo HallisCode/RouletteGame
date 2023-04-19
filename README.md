@@ -6,7 +6,7 @@ Standard roulette game of chance.
 Useful links :
 1. Read more about roulette: https://fan-casino.ru/roulette/pravila-igry.html.
 2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
-3. Random : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
+3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
 ## Contains
 1. RouletteLib - the roulette library itself.

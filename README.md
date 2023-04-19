@@ -16,17 +16,18 @@ Useful links :
 ## RouletteLib : MVP Example
 
 ```
+// Connecting the library
 using RoulutteLib
 
-
-Table table = new Table();
-
+// Create a gambling table with a range of accepted bets
+Table table = new Table(10000m, 100000m);
+// When you create a bet, it is accepted by the gambling table by default
 Rate rate = table.Bet(TypeExternalRate.Red, 1000);
 
+// Spinning roulette on the gambling table
+int winningCell = table.Spin();
 
-table.Spin();
-
-
+// After spinning the roulette wheel the status of bets is updated
 Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 

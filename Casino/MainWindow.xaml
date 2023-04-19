@@ -5,18 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Casino"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="MainWindow" Height="550" Width="1100" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/wheel.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/table.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <Image x:Name="Wheel" Source="{StaticResource wheel}" Margin="10,10,376,10" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="Spin" Content="Spin" HorizontalAlignment="Left" Height="110" Margin="510,144,0,0" VerticalAlignment="Top" Width="200" FontSize="36" Click="Spin_Click"/>
-        <Rectangle HorizontalAlignment="Left" Height="14" Stroke="Black" VerticalAlignment="Top" Width="34" Fill="Black" Margin="200,0,0,0"/>
+        
     </Grid>
 </Window>

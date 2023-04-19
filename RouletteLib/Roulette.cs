@@ -29,7 +29,7 @@ namespace RouletteLib
 		private void CheckAmountRate(decimal amount)
 		{
 			if (amount < minRate || amount > maxRate)
-				throw new Exception("Ставка выходит за диапозон принимаемых ставок стола.");
+				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
 		}
 
 		public RateExternal Bet(TypeExternalRate foreignRate, decimal amount)

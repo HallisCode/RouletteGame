@@ -11,7 +11,6 @@ Useful links :
 ## Contains
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
-3. ConsoleCasino - a small roulette with reduced functionality on the console.
 
 ## RouletteLib : MVP Example
 

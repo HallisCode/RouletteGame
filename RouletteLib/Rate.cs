@@ -10,7 +10,7 @@ namespace RouletteLib
 		Loss
 	}
 
-	public enum DomesticRate
+	public enum TypeDomesticRate
 	{
 		StraightUp,
 		Split,
@@ -20,7 +20,7 @@ namespace RouletteLib
 		FirstFour
 	}
 
-	public enum ExternalRate
+	public enum TypeExternalRate
 	{
 		Red, Black,
 		Even, Odd,
@@ -53,10 +53,10 @@ namespace RouletteLib
 	/// </summary>
 	public class RateExternal : Rate
 	{
-		public ExternalRate type { get; private set; }
+		public TypeExternalRate type { get; private set; }
 
 
-		internal RateExternal(ExternalRate foreignRate, decimal amount)
+		internal RateExternal(TypeExternalRate foreignRate, decimal amount)
 			: base(amount)
 		{
 			this.type = foreignRate;
@@ -68,10 +68,10 @@ namespace RouletteLib
 	/// </summary>
 	public class RateDomestic : Rate
 	{
-		public DomesticRate type { get; private set; }
+		public TypeDomesticRate type { get; private set; }
 
 
-		internal RateDomestic(DomesticRate domesticRate, decimal amount)
+		internal RateDomestic(TypeDomesticRate domesticRate, decimal amount)
 			: base(amount)
 		{
 			this.type = domesticRate;

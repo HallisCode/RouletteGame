@@ -18,6 +18,7 @@ Useful links :
 ```
 using RoulutteLib
 
+
 Table table = new Table();
 
 Rate rate = table.Bet(TypeExternalRate.Red, 1000);

@@ -20,7 +20,7 @@ using RoulutteLib
 
 Table table = new Table();
 
-Rate rate = table.Bate(TypeExternalRate.Red, 1000);
+Rate rate = table.Bet(TypeExternalRate.Red, 1000);
 
 
 table.Spin();

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-
+using System.Security.Cryptography;
 
 namespace RouletteLib
 {
 
 	/// <summary>
-	/// Описывает менеджер рулетки, который управляет всеми ее процессами.
+	/// Описывает игровой стол рулетки.
 	/// </summary>
 	public class Table
 	{
@@ -47,7 +47,7 @@ namespace RouletteLib
 		}
 
 		/// <summary>
-		/// Запускает прокрутку рулетки с последующими выплатами победителям.
+		/// Получает выпавшее число рулетки и обновляет состояние сделанных ставок.
 		/// </summary>
 		public int Spin()
 		{
@@ -222,12 +222,10 @@ namespace RouletteLib
 	{
 		public int[] cells { get; private set; } = Cells.allCells;
 
-		private Random _random = new Random();
-
 
 		public int Spin()
 		{
-			return _random.Next(cells.Min(), cells.Max() + 1);
+			return RandomNumberGenerator.GetInt32(cells.Min(), cells.Max() + 1);
 		}
 	}
 }

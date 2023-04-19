@@ -14,30 +14,51 @@ namespace RouletteLib
 
 		public Rate? rate { get; private set; }
 
+		public decimal minRate { get; private set; }
 
-		public void CreateRate(Player owner, ExternalRate foreignRate, decimal money)
+		public decimal maxRate { get; private set; }
+
+
+		public Table(decimal minRate, decimal maxRate)
 		{
-			rate = new RateExternal(owner: owner, foreignRate: foreignRate, money: money);
+			this.minRate = minRate;
+
+			this.maxRate = maxRate;
 		}
 
-		public void CreateRate(Player owner, DomesticRate domesticRate, decimal money)
+		private void CheckAmountRate(decimal amount)
 		{
-			rate = new RateDomestic(owner: owner, domesticRate: domesticRate, money: money);
+			if (amount < minRate || amount > maxRate)
+				throw new Exception("Ставка превышает диапозон принимаемых ставок стола.");
+		}
+
+		public void CreateRate(ExternalRate foreignRate, decimal amount)
+		{
+			CheckAmountRate(amount);
+
+			rate = new RateExternal(foreignRate: foreignRate, amount: amount);
+		}
+
+		public void CreateRate(DomesticRate domesticRate, decimal amount)
+		{
+			CheckAmountRate(amount);
+
+			rate = new RateDomestic(domesticRate: domesticRate, amount: amount);
 		}
 
 		/// <summary>
 		/// Запускает прокрутку рулетки с последующими выплатами победителям.
 		/// </summary>
-		public void Spin()
+		public int Spin()
 		{
-			if (rate is null) return;
+			if (rate is null) return -1;
 
 
 			int winningCell = roulette.Spin();
 
-			bool win;
+			bool win = false;
 
-			decimal multiplier;
+			decimal multiplier = 0m;
 
 			switch (rate)
 			{
@@ -50,27 +71,18 @@ namespace RouletteLib
 
 					DomesticRateHandler((RateDomestic)rate, winningCell, out win, out multiplier);
 					break;
-
-				default:
-
-					win = false;
-
-					multiplier = 0m;
-
-					break;
 			}
+
 
 			decimal winningMoney = 0m;
 
 			if (win)
 			{
-				winningMoney = rate.rate * multiplier + rate.rate;
+				winningMoney = rate.amount * multiplier + rate.amount;
 
 				rate.status = RateStatus.Winning;
 
 				rate.winningAmount = winningMoney;
-
-				rate.owner.money += winningMoney;
 			}
 			else
 			{
@@ -79,7 +91,10 @@ namespace RouletteLib
 				rate.winningAmount = winningMoney;
 			}
 
+
 			rate = null;
+
+			return winningCell;
 		}
 
 		protected void ExternalRateHandler(RateExternal rateExternal, int winningCell, out bool win, out decimal multiplier)

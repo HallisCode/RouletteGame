@@ -16,7 +16,7 @@ Useful links :
 ## RouletteLib : MVP Example
 
 ```
-#using RoulutteLib
+using RoulutteLib
 
 Table table = new RouletteManager();
 

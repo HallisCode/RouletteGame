@@ -18,7 +18,7 @@ Useful links :
 ```
 using RoulutteLib
 
-Table table = new RouletteManager();
+Table table = new Table();
 
 Rate rate = table.Bate(TypeExternalRate.Red, 1000);
 

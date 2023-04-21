@@ -7,20 +7,11 @@ namespace CasinoWpf.Views
 	/// <summary>
 	/// Interaction logic for Registry.xaml
 	/// </summary>
-	public partial class Registry : Window
+	public partial class RegistryWindow : Window
 	{
-		public Registry()
+		public RegistryWindow()
 		{
 			InitializeComponent();
 		}
-
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-			CasinoWindow casinoWindow = new CasinoWindow(new Player());
-
-			casinoWindow.Show();
-
-			this.Close();
-        }
     }
 }

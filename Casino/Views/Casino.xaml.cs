@@ -1,6 +1,5 @@
 ﻿using CasinoWpf.Models;
 using CasinoWpf.ViewModels;
-using System.Diagnostics;
 using System.Windows;
 
 
@@ -16,11 +15,11 @@ namespace CasinoWpf
 		{
 			InitializeComponent();
 
-			//CasinoViewModel casinoViewModel = new CasinoViewModel(player);
+			CasinoViewModel casinoViewModel = new CasinoViewModel(player);
 
-			//DataContext = casinoViewModel;
+			DataContext = casinoViewModel;
 
-			//casinoViewModel.wheel = Wheel;
+			casinoViewModel.wheel = Wheel;
 		}
 	}
 }

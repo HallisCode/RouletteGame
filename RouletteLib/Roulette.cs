@@ -12,7 +12,7 @@ namespace RouletteLib
 	{
 		public Roulette roulette { get; private set; } = new Roulette();
 
-		public Rate? rate { get; private set; }
+		public Bet? rate { get; private set; }
 
 		public decimal minRate { get; private set; }
 
@@ -32,22 +32,22 @@ namespace RouletteLib
 				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
 		}
 
-		public RateExternal Bet(TypeExternalRate typeExternalRate, decimal amount)
+		public OutsideBet Bet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
 			CheckAmountRate(amount);
 
-			rate = new RateExternal(typeExternalRate: typeExternalRate, amount: amount);
+			rate = new OutsideBet(typeOutsideBet: typeOutsideBet, amount: amount);
 
-			return (RateExternal)rate;
+			return (OutsideBet)rate;
 		}
 
-		public RateDomestic Bet(TypeDomesticRate typeDomesticRate, decimal amount)
+		public InsideBet Bet(TypeInsideBet typeInsideBet, decimal amount)
 		{
 			CheckAmountRate(amount);
 
-			rate = new RateDomestic(typeDomesticRate: typeDomesticRate, amount: amount);
+			rate = new InsideBet(typeInsideBet: typeInsideBet, amount: amount);
 
-			return (RateDomestic)rate;
+			return (InsideBet)rate;
 		}
 
 		/// <summary>
@@ -65,14 +65,14 @@ namespace RouletteLib
 
 			switch (rate)
 			{
-				case (RateExternal):
+				case (OutsideBet):
 
-					ExternalRateHandler((RateExternal)rate, winningCell, out win, out multiplier);
+					ExternalRateHandler((OutsideBet)rate, winningCell, out win, out multiplier);
 					break;
 
-				case (RateDomestic):
+				case (InsideBet):
 
-					DomesticRateHandler((RateDomestic)rate, winningCell, out win, out multiplier);
+					DomesticRateHandler((InsideBet)rate, winningCell, out win, out multiplier);
 					break;
 			}
 
@@ -100,11 +100,11 @@ namespace RouletteLib
 			return winningCell;
 		}
 
-		private void ExternalRateHandler(RateExternal rateExternal, int winningCell, out bool win, out decimal multiplier)
+		private void ExternalRateHandler(OutsideBet rateExternal, int winningCell, out bool win, out decimal multiplier)
 		{
 			switch (rateExternal.type)
 			{
-				case (TypeExternalRate.Red):
+				case (TypeOutsideBet.Red):
 
 					win = Cells.redCells.Contains(winningCell);
 
@@ -112,7 +112,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Black):
+				case (TypeOutsideBet.Black):
 
 					win = Cells.blackCells.Contains(winningCell);
 
@@ -120,7 +120,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Even):
+				case (TypeOutsideBet.Even):
 
 					win = winningCell % 2 == 0;
 
@@ -128,7 +128,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Odd):
+				case (TypeOutsideBet.Odd):
 
 					win = winningCell % 2 != 0;
 
@@ -136,7 +136,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.SmallFigures):
+				case (TypeOutsideBet.SmallFigures):
 
 					win = winningCell > 0 && winningCell <= 18;
 
@@ -144,7 +144,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.LargeFigures):
+				case (TypeOutsideBet.LargeFigures):
 
 					win = winningCell > 18 && winningCell <= 36;
 
@@ -152,7 +152,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Dozen1):
+				case (TypeOutsideBet.Dozen1):
 
 					win = Cells.dozen1.Contains(winningCell);
 
@@ -160,7 +160,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Dozen2):
+				case (TypeOutsideBet.Dozen2):
 
 					win = Cells.dozen2.Contains(winningCell);
 
@@ -168,7 +168,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Dozen3):
+				case (TypeOutsideBet.Dozen3):
 
 					win = Cells.dozen3.Contains(winningCell);
 
@@ -176,7 +176,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Column1):
+				case (TypeOutsideBet.Column1):
 
 					win = Cells.column1.Contains(winningCell);
 
@@ -184,7 +184,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Column2):
+				case (TypeOutsideBet.Column2):
 
 					win = Cells.column2.Contains(winningCell);
 
@@ -192,7 +192,7 @@ namespace RouletteLib
 
 					break;
 
-				case (TypeExternalRate.Column3):
+				case (TypeOutsideBet.Column3):
 
 					win = Cells.column3.Contains(winningCell);
 
@@ -210,7 +210,7 @@ namespace RouletteLib
 			}
 		}
 
-		private void DomesticRateHandler(RateDomestic rateDomestic, int winningCell, out bool win, out decimal multiplier)
+		private void DomesticRateHandler(InsideBet rateDomestic, int winningCell, out bool win, out decimal multiplier)
 		{
 			win = false;
 

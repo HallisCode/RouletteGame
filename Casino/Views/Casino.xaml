@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CasinoWpf"
+        xmlns:viewModels="clr-namespace:CasinoWpf.ViewModels"
         mc:Ignorable="d"
         Title="Casino:Robux" Height="500" Width="1000" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
@@ -22,6 +23,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/wheel.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Resources/table.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/chip.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Resources/launchButton.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -39,15 +42,44 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
+                    <GradientStop Color="#FF4B4B4B" Offset="1"/>
+                    <GradientStop Color="#FF252525" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
 
+        </Rectangle>
+
+        <Rectangle Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
+                    <GradientStop Color="#FF4B4B4B"/>
+                    <GradientStop Color="#FF252525" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+
+        </Rectangle>
+        
+        <Button Grid.Column="1" Grid.Row="1" Margin="60" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Image Source="{StaticResource launchButton}"/>
+        </Button>
         <Image Name="Wheel" Source="{StaticResource wheel}" Grid.Column="1" Grid.Row="1" Margin="0"/>
+
         <Image Source="{StaticResource table}" Grid.Column="2" Grid.Row="1" Margin="50,0,0,0"/>
 
-        <Button Grid.Column="1" Grid.Row="1" Command="{Binding commandSpinWheel}" Content="Spin" HorizontalAlignment="Center" Height="105" VerticalAlignment="Center" Width="140"/>
+        <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding rate}" HorizontalAlignment="Center" Height="Auto" Width="354" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10,0,12" SelectionBrush="White" Background="{x:Null}" BorderBrush="White" FontSize="20" Foreground="White" CaretBrush="White"/>
         
-        <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding rate}" HorizontalAlignment="Center" Height="Auto" Width="354" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Height="Auto" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Center" Width="Auto"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Height="Auto" TextWrapping="Wrap" Text="{Binding balance}" VerticalAlignment="Center" Width="Auto"/>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding player.name}" FontSize="20" Margin="0,0,20,0"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding player.lastName}" FontSize="20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock TextWrapping="Wrap" Text="Balance :" FontSize="20" Margin="0,0,20,0"/>
+            <TextBlock TextWrapping="Wrap" Text="{Binding player.balance}" FontSize="20"/>
+        </StackPanel>
+
     </Grid>
 </Window>

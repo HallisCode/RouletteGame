@@ -10,7 +10,7 @@ namespace RouletteLib
 		Loss
 	}
 
-	public enum TypeDomesticRate
+	public enum TypeInsideBet
 	{
 		StraightUp,
 		Split,
@@ -20,7 +20,7 @@ namespace RouletteLib
 		FirstFour
 	}
 
-	public enum TypeExternalRate
+	public enum TypeOutsideBet
 	{
 		Red, Black,
 		Even, Odd,
@@ -33,7 +33,7 @@ namespace RouletteLib
 	/// <summary>
 	/// Описывает абстрактную ставку в рулетке.
 	/// </summary>
-	public abstract class Rate
+	public abstract class Bet
 	{
 		public decimal amount { get; protected set; }
 
@@ -42,7 +42,7 @@ namespace RouletteLib
 		public decimal winningAmount { get; internal set; }
 
 
-		protected Rate(decimal amount)
+		protected Bet(decimal amount)
 		{
 			this.amount = amount;
 		}
@@ -51,30 +51,30 @@ namespace RouletteLib
 	/// <summary>
 	/// Описывает внешнюю ставку в рулетке.
 	/// </summary>
-	public class RateExternal : Rate
+	public class OutsideBet : Bet
 	{
-		public TypeExternalRate type { get; private set; }
+		public TypeOutsideBet type { get; private set; }
 
 
-		internal RateExternal(TypeExternalRate typeExternalRate, decimal amount)
+		internal OutsideBet(TypeOutsideBet typeOutsideBet, decimal amount)
 			: base(amount)
 		{
-			this.type = typeExternalRate;
+			this.type = typeOutsideBet;
 		}
 	}
 
 	/// <summary>
 	/// Описывает внутреннюю ставку в рулетке.
 	/// </summary>
-	public class RateDomestic : Rate
+	public class InsideBet : Bet
 	{
-		public TypeDomesticRate type { get; private set; }
+		public TypeInsideBet type { get; private set; }
 
 
-		internal RateDomestic(TypeDomesticRate typeDomesticRate, decimal amount)
+		internal InsideBet(TypeInsideBet typeInsideBet, decimal amount)
 			: base(amount)
 		{
-			this.type = typeDomesticRate;
+			this.type = typeInsideBet;
 		}
 	}
 }

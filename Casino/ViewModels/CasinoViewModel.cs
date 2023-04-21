@@ -2,67 +2,19 @@
 using CasinoWpf.Models;
 using RouletteLib;
 using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
+
 namespace CasinoWpf.ViewModels
 {
-	internal class CasinoViewModel : INotifyPropertyChanged
+	internal class CasinoViewModel : ViewModel
 	{
-		private Player _player;
+		public Player player { get; private set; }
 
-		private Table table;
-
-		private string _name;
-
-		public string name
-		{
-			get { return _name; }
-			set
-			{
-				_name = value;
-
-				Notify();
-			}
-		}
-
-
-		private string _lastName;
-
-		public string lastName
-		{
-			get { return _lastName; }
-			set
-			{
-				_lastName = value;
-
-				Notify();
-			}
-		}
-
-
-		private decimal _balance;
-
-		public decimal balance
-		{
-			get
-			{
-				return _balance;
-			}
-
-			set
-			{
-				_balance = value;
-
-				Notify();
-			}
-		}
+		public Table table { get; private set; }
 
 
 		private decimal _rate;
@@ -131,27 +83,18 @@ namespace CasinoWpf.ViewModels
 
 		public bool CheckAvailabilitywheel()
 		{
-			if (_wheel is null || table.rate is null || _balance is 0) return false;
+			if (_wheel is null || table.rate is null || player.balance is 0) return false;
 
 			return true;
 		}
 
 		public CasinoViewModel(Player player)
 		{
-			this._player = player;
+			this.player = player;
 
 			commandSpinWheel = new Command(SpinWheel, CheckAvailabilitywheel);
 
 			table = new Table();
-		}
-
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-
-		private void Notify([CallerMemberName] string propertyName = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

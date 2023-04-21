@@ -7,19 +7,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Page Remove="Resources\wheel.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\wheel.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<Resource Include="Resources\table.xaml"></Resource>
+		<Resource Include="Resources\wheel.xaml"></Resource>
+		
+		<Resource Include="Fonts\Roboto-Regular.ttf"></Resource>
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\RouletteLib\RouletteLib.csproj" />
   </ItemGroup>

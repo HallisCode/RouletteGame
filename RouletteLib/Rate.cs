@@ -56,10 +56,10 @@ namespace RouletteLib
 		public TypeExternalRate type { get; private set; }
 
 
-		internal RateExternal(TypeExternalRate foreignRate, decimal amount)
+		internal RateExternal(TypeExternalRate typeExternalRate, decimal amount)
 			: base(amount)
 		{
-			this.type = foreignRate;
+			this.type = typeExternalRate;
 		}
 	}
 
@@ -71,10 +71,10 @@ namespace RouletteLib
 		public TypeDomesticRate type { get; private set; }
 
 
-		internal RateDomestic(TypeDomesticRate domesticRate, decimal amount)
+		internal RateDomestic(TypeDomesticRate typeDomesticRate, decimal amount)
 			: base(amount)
 		{
-			this.type = domesticRate;
+			this.type = typeDomesticRate;
 		}
 	}
 }

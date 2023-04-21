@@ -32,20 +32,20 @@ namespace RouletteLib
 				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
 		}
 
-		public RateExternal Bet(TypeExternalRate foreignRate, decimal amount)
+		public RateExternal Bet(TypeExternalRate typeExternalRate, decimal amount)
 		{
 			CheckAmountRate(amount);
 
-			rate = new RateExternal(foreignRate: foreignRate, amount: amount);
+			rate = new RateExternal(typeExternalRate: typeExternalRate, amount: amount);
 
 			return (RateExternal)rate;
 		}
 
-		public RateDomestic Bet(TypeDomesticRate domesticRate, decimal amount)
+		public RateDomestic Bet(TypeDomesticRate typeDomesticRate, decimal amount)
 		{
 			CheckAmountRate(amount);
 
-			rate = new RateDomestic(domesticRate: domesticRate, amount: amount);
+			rate = new RateDomestic(typeDomesticRate: typeDomesticRate, amount: amount);
 
 			return (RateDomestic)rate;
 		}
@@ -55,8 +55,7 @@ namespace RouletteLib
 		/// </summary>
 		public int Spin()
 		{
-			if (rate is null) return -1;
-
+			if (rate is null) throw new Exception("Отсутствует ставка.");
 
 			int winningCell = roulette.Spin();
 

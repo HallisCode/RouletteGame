@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RouletteLib", "RouletteLib\RouletteLib.csproj", "{EADB1B7D-F6B5-4613-81FA-A6793126B1F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casino", "Casino\Casino.csproj", "{E1B35C6B-1031-49EC-AC94-36A66F99A633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasinoWpf", "Casino\CasinoWpf.csproj", "{E1B35C6B-1031-49EC-AC94-36A66F99A633}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

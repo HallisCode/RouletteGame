@@ -2,19 +2,25 @@
 using CasinoWpf.Models;
 using RouletteLib;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace CasinoWpf.ViewModels
 {
 	internal class CasinoViewModel : ViewModel
 	{
+		private decimal lastIndexCell = -1;
+
 		public Player player { get; private set; }
 
 		public Table table { get; private set; }
+
+		public Bet? bet;
 
 
 		private decimal _rate;
@@ -57,28 +63,59 @@ namespace CasinoWpf.ViewModels
 			private set { _commandSpinWheel = value; }
 		}
 
-
 		public void SpinWheel()
 		{
-			int winningCell = table.Spin();
+			// В процессе написания
 
-			QuarticEase fluidAnimation = new QuarticEase();
-			fluidAnimation.EasingMode = EasingMode.EaseInOut;
+			//int winningCell = table.Spin();
 
-			RotateTransform rotateTransform = (RotateTransform)_wheel.RenderTransform;
+			//int currentIndexCell = Array.IndexOf(cells, winningCell);
 
-			DoubleAnimation rotateAnimation = new DoubleAnimation();
+			//decimal rotateOn = 0;
 
-			double currentAngel = rotateTransform.Angle % 360;
-			rotateTransform.Angle = currentAngel;
+			//if (lastIndexCell == -1)
+			//{
 
-			rotateAnimation.From = currentAngel;
-			rotateAnimation.To = currentAngel + 360d * 6d + winningCell * 360d / table.roulette.cells.Length;
-			rotateAnimation.Duration = TimeSpan.FromSeconds(8);
-			rotateAnimation.EasingFunction = fluidAnimation;
+			//}
+			//else
+			//{
+			//	rotateOn = currentIndexCell - lastIndexCell;
+			//}
+
+			//QuarticEase fluidAnimation = new QuarticEase();
+			//fluidAnimation.EasingMode = EasingMode.EaseInOut;
+
+			//RotateTransform rotateTransform = (RotateTransform)_wheel.RenderTransform;
+
+			//DoubleAnimation rotateAnimation = new DoubleAnimation();
+
+			//double currentAngel = rotateTransform.Angle % 360;
+			//rotateTransform.Angle = currentAngel;
+
+			//rotateAnimation.From = currentAngel;
+			//rotateAnimation.To = currentAngel + Array.FindIndex(cells, i => i == winningCell) * (360d / cells.Length);
+			//rotateAnimation.Duration = TimeSpan.FromSeconds(8);
+			//rotateAnimation.EasingFunction = fluidAnimation;
+			//rotateAnimation.Completed += new EventHandler(Paymenter);
 
 
-			rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+			//rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+			//MessageBox.Show(winningCell.ToString());
+
+			//lastIndexCell = Array.IndexOf(cells, winningCell);
+		}
+
+		public void Paymenter(object? sender, EventArgs e)
+		{
+			if (bet.status == RateStatus.Winning)
+			{
+				player.balance += bet.winningAmount;
+			}
+			else
+			{
+				player.balance -= bet.amount;
+			}
 		}
 
 		public bool CheckAvailabilitywheel()
@@ -87,6 +124,7 @@ namespace CasinoWpf.ViewModels
 
 			return true;
 		}
+
 
 		public CasinoViewModel(Player player)
 		{

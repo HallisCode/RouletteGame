@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CasinoWpf"
         xmlns:viewModels="clr-namespace:CasinoWpf.ViewModels"
+        xmlns:cellSys="clr-namespace:CasinoWpf.Utils"
+        xmlns:roulutteLib="clr-namespace:RouletteLib;assembly=RouletteLib"
         mc:Ignorable="d"
         Title="Casino:Robux" Height="500" Width="1000" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
@@ -25,6 +27,42 @@
                 <ResourceDictionary Source="/Resources/table.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Resources/chip.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Resources/launchButton.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="FontFamily" Value="/Fonts/#Roboto-Regular.ttf"></Setter>
+                        <Setter Property="FontSize" Value="22"></Setter>
+                    </Style>
+                    <Style TargetType="Rectangle">
+                        <Setter Property="Fill" Value="Yellow"></Setter>
+                        <Setter Property="Opacity" Value="0.55"></Setter>
+                    </Style>
+                    <Style TargetType="Button" x:Key="MyButton2">
+                        <Setter Property="OverridesDefaultStyle" Value="True" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="Transparent" />
+
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter x:Name="MyContentPresenter" 
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Transparent"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -38,7 +76,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="125*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
@@ -52,7 +91,7 @@
 
         </Rectangle>
 
-        <Rectangle Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" >
+        <Rectangle Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="0,250,0,0" Grid.RowSpan="2" >
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
                     <GradientStop Color="#FF4B4B4B"/>
@@ -61,25 +100,115 @@
             </Rectangle.Fill>
 
         </Rectangle>
-        
-        <Button Grid.Column="1" Grid.Row="1" Margin="60" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+
+
+        <Image Name="Wheel" Source="{StaticResource wheel}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+
+        <Button Grid.Column="1" Grid.Row="1" Command="{Binding commandSpinWheel}" Grid.RowSpan="2" Margin="63" Style="{StaticResource MyButton2}">
             <Image Source="{StaticResource launchButton}"/>
         </Button>
-        <Image Name="Wheel" Source="{StaticResource wheel}" Grid.Column="1" Grid.Row="1" Margin="0"/>
 
-        <Image Source="{StaticResource table}" Grid.Column="2" Grid.Row="1" Margin="50,0,0,0"/>
+        <Grid  Grid.Column="2" Grid.Row="1" Margin="50,65,0,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Image Source="{StaticResource table}" />
+            <Grid Name="Table" Rectangle.MouseLeftButtonDown="Table_SelectCell">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="39*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="46*"/>
+                    <RowDefinition Height="46*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="39*"/>
+                </Grid.RowDefinitions>
 
-        <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding rate}" HorizontalAlignment="Center" Height="Auto" Width="354" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10,0,12" SelectionBrush="White" Background="{x:Null}" BorderBrush="White" FontSize="20" Foreground="White" CaretBrush="White"/>
-        
-        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding player.name}" FontSize="20" Margin="0,0,20,0"/>
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding player.lastName}" FontSize="20"/>
+
+
+                <Rectangle Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Dozen1}" />
+                <Rectangle Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Dozen2}" />
+                <Rectangle Grid.Column="9" Grid.Row="0" Grid.ColumnSpan="4" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Dozen3}" />
+
+                <Rectangle Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.SmallFigures}" />
+                <Rectangle Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="6" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.LargeFigures}" />
+
+                <Rectangle Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Black}" />
+                <Rectangle Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="3" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Red}" />
+
+                <Rectangle Grid.Column="7" Grid.Row="5" Grid.ColumnSpan="3" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Even}" />
+                <Rectangle Grid.Column="10" Grid.Row="5" Grid.ColumnSpan="3" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Odd}" />
+
+                <Rectangle Grid.Column="13" Grid.Row="1" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Column3}"/>
+                <Rectangle Grid.Column="13" Grid.Row="2" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Column2}"/>
+                <Rectangle Grid.Column="13" Grid.Row="3" cellSys:CellOutsideBet.Type="{x:Static roulutteLib:TypeOutsideBet.Column1}"/>
+
+                <Rectangle Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" />
+                <Rectangle Grid.Column="1" Grid.Row="3" />
+                <Rectangle Grid.Column="1" Grid.Row="2" />
+                <Rectangle Grid.Column="1" Grid.Row="1" />
+                <Rectangle Grid.Column="2" Grid.Row="3" />
+                <Rectangle Grid.Column="2" Grid.Row="2" />
+                <Rectangle Grid.Column="2" Grid.Row="1" />
+                <Rectangle Grid.Column="3" Grid.Row="3" />
+                <Rectangle Grid.Column="3" Grid.Row="2" />
+                <Rectangle Grid.Column="3" Grid.Row="1" />
+                <Rectangle Grid.Column="4" Grid.Row="3" />
+                <Rectangle Grid.Column="4" Grid.Row="2" />
+                <Rectangle Grid.Column="4" Grid.Row="1" />
+                <Rectangle Grid.Column="5" Grid.Row="3" />
+                <Rectangle Grid.Column="5" Grid.Row="2" />
+                <Rectangle Grid.Column="5" Grid.Row="1" />
+                <Rectangle Grid.Column="6" Grid.Row="3" />
+                <Rectangle Grid.Column="6" Grid.Row="2" />
+                <Rectangle Grid.Column="6" Grid.Row="1" />
+                <Rectangle Grid.Column="7" Grid.Row="3" />
+                <Rectangle Grid.Column="7" Grid.Row="2" />
+                <Rectangle Grid.Column="7" Grid.Row="1" />
+                <Rectangle Grid.Column="8" Grid.Row="3" />
+                <Rectangle Grid.Column="8" Grid.Row="2" />
+                <Rectangle Grid.Column="8" Grid.Row="1" />
+                <Rectangle Grid.Column="9" Grid.Row="3" />
+                <Rectangle Grid.Column="9" Grid.Row="2" />
+                <Rectangle Grid.Column="9" Grid.Row="1" />
+                <Rectangle Grid.Column="10" Grid.Row="3" />
+                <Rectangle Grid.Column="10" Grid.Row="2" />
+                <Rectangle Grid.Column="10" Grid.Row="1" />
+                <Rectangle Grid.Column="11" Grid.Row="3" />
+                <Rectangle Grid.Column="11" Grid.Row="2" />
+                <Rectangle Grid.Column="11" Grid.Row="1" />
+                <Rectangle Grid.Column="12" Grid.Row="3" />
+                <Rectangle Grid.Column="12" Grid.Row="2" />
+                <Rectangle Grid.Column="12" Grid.Row="1" />
+
+            </Grid>
+        </Grid>
+
+        <TextBox Grid.Column="2" Grid.Row="3" Text="{Binding rate,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" Height="Auto" Width="354" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10,0,12" SelectionBrush="White" Background="{x:Null}" BorderBrush="White" FontSize="20" Foreground="White" CaretBrush="White"/>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="{Binding player.name}" Foreground="White" />
+            <Label Content="{Binding player.lastName}" />
         </StackPanel>
 
-        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock TextWrapping="Wrap" Text="Balance :" FontSize="20" Margin="0,0,20,0"/>
-            <TextBlock TextWrapping="Wrap" Text="{Binding player.balance}" FontSize="20"/>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Balance :" Margin="0,0,20,0"/>
+            <Label Content="{Binding player.balance}"/>
         </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="3" Click="Button_Click">RESET</Button>
 
     </Grid>
 </Window>

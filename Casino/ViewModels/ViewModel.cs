@@ -4,8 +4,14 @@ using System.Runtime.CompilerServices;
 
 namespace CasinoWpf.ViewModels
 {
-	internal class ViewModel : INotifyPropertyChanged
+	internal abstract class ViewModel : INotifyPropertyChanged, IDataErrorInfo
 	{
+		public virtual string this[string columnName] => throw new System.NotImplementedException();
+
+		public string Error => throw new System.NotImplementedException();
+
+
+
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 

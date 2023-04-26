@@ -67,12 +67,12 @@ namespace RouletteLib
 			{
 				case (OutsideBet):
 
-					ExternalRateHandler((OutsideBet)rate, winningCell, out win, out multiplier);
+					OutsideBetHandler((OutsideBet)rate, winningCell, out win, out multiplier);
 					break;
 
 				case (InsideBet):
 
-					DomesticRateHandler((InsideBet)rate, winningCell, out win, out multiplier);
+					InsideBetHandler((InsideBet)rate, winningCell, out win, out multiplier);
 					break;
 			}
 
@@ -81,7 +81,7 @@ namespace RouletteLib
 
 			if (win)
 			{
-				winningMoney = rate.amount * multiplier + rate.amount;
+				winningMoney = rate.amount * multiplier;
 
 				rate.status = RateStatus.Winning;
 
@@ -94,13 +94,14 @@ namespace RouletteLib
 				rate.winningAmount = winningMoney;
 			}
 
+			lastRate = rate;
 
 			rate = null;
 
 			return winningCell;
 		}
 
-		private void ExternalRateHandler(OutsideBet rateExternal, int winningCell, out bool win, out decimal multiplier)
+		private void OutsideBetHandler(OutsideBet rateExternal, int winningCell, out bool win, out decimal multiplier)
 		{
 			switch (rateExternal.type)
 			{
@@ -210,7 +211,7 @@ namespace RouletteLib
 			}
 		}
 
-		private void DomesticRateHandler(InsideBet rateDomestic, int winningCell, out bool win, out decimal multiplier)
+		private void InsideBetHandler(InsideBet rateDomestic, int winningCell, out bool win, out decimal multiplier)
 		{
 			win = false;
 

@@ -6,12 +6,8 @@
         xmlns:local="clr-namespace:CasinoWpf.Views"
         xmlns:viewModels="clr-namespace:CasinoWpf.ViewModels"
         mc:Ignorable="d"
-        Title="Casino:Registry" Height="280" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Foreground="White">
+        Title="Casino:Registry" Height="290" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Foreground="White">
 
-    <Window.DataContext>
-        <viewModels:RegistryViewModel></viewModels:RegistryViewModel>
-    </Window.DataContext>
-    
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="1,0">
             <GradientStop Color="#FF252525" Offset="1"/>
@@ -27,8 +23,13 @@
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="CaretBrush" Value="White"></Setter>
         </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontFamily" Value="/Fonts/#Roboto-Regular.ttf"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -41,17 +42,41 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="260">
-            <TextBlock TextWrapping="Wrap" Text="Name :"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding name}" Margin="0,5,0,0"/>
+        <StackPanel Name="Form" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="260" Height="Auto">
+            <Label Content="Name :"/>
+            <TextBox TextWrapping="NoWrap" Margin="0,0,0,10">
+                <TextBox.Text>
+                    <Binding Path="name">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
-            <TextBlock TextWrapping="Wrap" Text="Last Name :" Margin="0,15,0,0" />
-            <TextBox TextWrapping="Wrap" Text="{Binding lastName}" Margin="0,5,0,0"/>
+            <Label Content="Last Name :" />
+            <TextBox TextWrapping="NoWrap" Margin="0,0,0,10">
+                <TextBox.Text>
+                    <Binding Path="lastName" >
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
-            <TextBlock TextWrapping="Wrap" Text="Balance :" Margin="0,15,0,0"/>
-            <TextBox TextWrapping="Wrap" Text="{Binding balance}" Margin="0,5,0,0"/>
+            <Label Content="Balance :"/>
+            <TextBox TextWrapping="NoWrap" Margin="0,0,0,20">
+                <TextBox.Text>
+                    <Binding Path="balance">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
-            <Button Content="Play" Margin="0,20,0,0" Command="{Binding commandLogin}"/>
+            <Button Content="Play" Command="{Binding commandLogin}"/>
         </StackPanel>
     </Grid>
 </Window>

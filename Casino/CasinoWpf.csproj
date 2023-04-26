@@ -5,10 +5,15 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Page Remove="Resources\table.xaml" />
+  </ItemGroup>
+
 	<ItemGroup>
-		<Resource Include="Resources\table.xaml"></Resource>
+		<Resource Include="Resources\table.xaml" />
 		<Resource Include="Resources\wheel.xaml"></Resource>
 		<Resource Include="Resources\chip.xaml"></Resource>
 		<Resource Include="Resources\launchButton.xaml"></Resource>

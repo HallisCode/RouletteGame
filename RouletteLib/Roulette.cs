@@ -41,11 +41,11 @@ namespace RouletteLib
 			return (OutsideBet)rate;
 		}
 
-		public InsideBet Bet(TypeInsideBet typeInsideBet, decimal amount)
+		public InsideBet Bet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
 			CheckAmountRate(amount);
 
-			rate = new InsideBet(typeInsideBet: typeInsideBet, amount: amount);
+			rate = new InsideBet(typeInsideBet: typeInsideBet, amount: amount, numbers: numbers);
 
 			return (InsideBet)rate;
 		}
@@ -211,9 +211,52 @@ namespace RouletteLib
 
 		private void InsideBetHandler(InsideBet rateDomestic, int winningCell, out bool win, out decimal multiplier)
 		{
-			win = false;
+			win = rateDomestic.numbers.Contains(winningCell);
 
-			multiplier = 0m;
+			switch (rateDomestic.type)
+			{
+				case (TypeInsideBet.StraightUp):
+
+					multiplier = 35m;
+
+					break;
+
+				case (TypeInsideBet.Split):
+
+					multiplier = 17m;
+
+					break;
+
+				case (TypeInsideBet.Street):
+
+					multiplier = 11m;
+
+					break;
+
+				case (TypeInsideBet.SixLine):
+
+					multiplier = 5m;
+
+					break;
+
+				case (TypeInsideBet.Corner):
+
+					multiplier = 8m;
+
+					break;
+
+				case (TypeInsideBet.FirstFour):
+
+					multiplier = 8m;
+
+					break;
+
+				default:
+
+					multiplier = 0m;
+
+					break;
+			}
 		}
 	}
 

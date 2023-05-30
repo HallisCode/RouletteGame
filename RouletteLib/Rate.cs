@@ -70,11 +70,62 @@ namespace RouletteLib
 	{
 		public TypeInsideBet type { get; private set; }
 
+		public int[] numbers { get; private set; }
 
-		internal InsideBet(TypeInsideBet typeInsideBet, decimal amount)
+
+		internal InsideBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 			: base(amount)
 		{
 			this.type = typeInsideBet;
+
+			int sizeOfArray = 0;
+
+			switch (typeInsideBet)
+			{
+				case (TypeInsideBet.StraightUp):
+
+					sizeOfArray = 1;
+
+					break;
+
+				case (TypeInsideBet.Split):
+
+					sizeOfArray = 2;
+
+					break;
+
+				case (TypeInsideBet.Street):
+
+					sizeOfArray = 3;
+
+					break;
+
+				case (TypeInsideBet.SixLine):
+
+					sizeOfArray = 6;
+
+					break;
+
+				case (TypeInsideBet.Corner):
+
+					sizeOfArray = 4;
+
+					break;
+
+				case (TypeInsideBet.FirstFour):
+
+					sizeOfArray = 4;
+
+					break;
+			}
+
+
+			if (sizeOfArray != numbers.Length)
+				throw new Exception("Количество ставок не соответствует типу ставки!");
+
+			this.numbers = numbers;
 		}
 	}
+
+
 }

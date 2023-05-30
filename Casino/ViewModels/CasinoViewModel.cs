@@ -106,9 +106,6 @@ namespace CasinoWpf.ViewModels
 
 			DoubleAnimation rotateAnimation = new DoubleAnimation();
 
-			// double currentAngel = rotateTransform.Angle % 360;
-			// rotateTransform.Angle = currentAngel;
-
 			rotateAnimation.From = rotateTransform.Angle;
 			rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / allCells.Length) + 360d * 5;
 			rotateAnimation.Duration = TimeSpan.FromSeconds(3);

@@ -94,8 +94,6 @@ namespace RouletteLib
 				rate.winningAmount = winningMoney;
 			}
 
-			lastRate = rate;
-
 			rate = null;
 
 			return winningCell;

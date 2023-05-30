@@ -7,14 +7,17 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace CasinoWpf.ViewModels
 {
 	internal class CasinoViewModel : ViewModel
 	{
-		private decimal lastIndexCell = -1;
+		private int lastIndexCell = 0;
+
+		private int[] allCells = Cells.allCells.Reverse().ToArray();
+
+		private bool isFirstSpin = true;
 
 		public Player player { get; private set; }
 
@@ -67,43 +70,57 @@ namespace CasinoWpf.ViewModels
 		{
 			// В процессе написания
 
-			//int winningCell = table.Spin();
+			int winningCell = table.Spin();
 
-			//int currentIndexCell = Array.IndexOf(cells, winningCell);
+			int currentIndexCell = Array.IndexOf(allCells, winningCell);
 
-			//decimal rotateOn = 0;
+			int rotateOn = 0;
 
-			//if (lastIndexCell == -1)
-			//{
+			if (currentIndexCell - lastIndexCell > 0)
+			{
+				int[] betweenElements = allCells.Skip(lastIndexCell).Take(currentIndexCell - lastIndexCell).ToArray();
 
-			//}
-			//else
-			//{
-			//	rotateOn = currentIndexCell - lastIndexCell;
-			//}
+				rotateOn = betweenElements.Count();
+			}
+			else if (currentIndexCell - lastIndexCell < 0)
+			{
+				rotateOn += allCells.Length - lastIndexCell;
 
-			//QuarticEase fluidAnimation = new QuarticEase();
-			//fluidAnimation.EasingMode = EasingMode.EaseInOut;
+				int[] betweenElements = allCells.Take(currentIndexCell).ToArray();
 
-			//RotateTransform rotateTransform = (RotateTransform)_wheel.RenderTransform;
+				rotateOn += betweenElements.Count();
+			}
 
-			//DoubleAnimation rotateAnimation = new DoubleAnimation();
+			if (isFirstSpin)
+			{
+				isFirstSpin = false;
 
-			//double currentAngel = rotateTransform.Angle % 360;
-			//rotateTransform.Angle = currentAngel;
-
-			//rotateAnimation.From = currentAngel;
-			//rotateAnimation.To = currentAngel + Array.FindIndex(cells, i => i == winningCell) * (360d / cells.Length);
-			//rotateAnimation.Duration = TimeSpan.FromSeconds(8);
-			//rotateAnimation.EasingFunction = fluidAnimation;
-			//rotateAnimation.Completed += new EventHandler(Paymenter);
+				rotateOn += 1;
+			}
 
 
-			//rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+			QuarticEase fluidAnimation = new QuarticEase();
+			fluidAnimation.EasingMode = EasingMode.EaseInOut;
 
-			//MessageBox.Show(winningCell.ToString());
+			RotateTransform rotateTransform = (RotateTransform)_wheel.RenderTransform;
 
-			//lastIndexCell = Array.IndexOf(cells, winningCell);
+			DoubleAnimation rotateAnimation = new DoubleAnimation();
+
+			// double currentAngel = rotateTransform.Angle % 360;
+			// rotateTransform.Angle = currentAngel;
+
+			rotateAnimation.From = rotateTransform.Angle;
+			rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / allCells.Length) + 360d * 5;
+			rotateAnimation.Duration = TimeSpan.FromSeconds(3);
+			rotateAnimation.EasingFunction = fluidAnimation;
+			rotateAnimation.Completed += new EventHandler(Paymenter);
+
+
+			rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+			MessageBox.Show(winningCell.ToString());
+
+			lastIndexCell = currentIndexCell;
 		}
 
 		public void Paymenter(object? sender, EventArgs e)

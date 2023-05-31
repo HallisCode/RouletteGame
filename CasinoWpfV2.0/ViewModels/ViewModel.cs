@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoWpf.Models
+namespace CasinoWpfV2._0.ViewModels
 {
-	public abstract class Model : INotifyPropertyChanged
+	internal abstract class ViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler? PropertyChanged;
 

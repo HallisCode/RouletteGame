@@ -33,12 +33,5 @@ namespace CasinoWpf
 
 			casinoViewModel.bet = casinoViewModel.table.Bet(typeOutsideBet, casinoViewModel.rate);
 		}
-
-		private void Button_Click(object sender, RoutedEventArgs e)
-		{
-			RotateTransform rotateTransform = (RotateTransform)Wheel.RenderTransform;
-
-			rotateTransform.Angle = 0d;
-		}
 	}
 }

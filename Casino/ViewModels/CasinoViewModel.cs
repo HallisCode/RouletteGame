@@ -108,14 +108,12 @@ namespace CasinoWpf.ViewModels
 
 			rotateAnimation.From = rotateTransform.Angle;
 			rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / allCells.Length) + 360d * 5;
-			rotateAnimation.Duration = TimeSpan.FromSeconds(3);
+			rotateAnimation.Duration = TimeSpan.FromSeconds(8);
 			rotateAnimation.EasingFunction = fluidAnimation;
 			rotateAnimation.Completed += new EventHandler(Paymenter);
 
 
 			rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-
-			MessageBox.Show(winningCell.ToString());
 
 			lastIndexCell = currentIndexCell;
 		}

@@ -6,12 +6,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasinoWpf.Models
+namespace CasinoWpfV2._0.Models
 {
-	public abstract class Model : INotifyPropertyChanged
+	internal class Model : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler? PropertyChanged;
-
+		
 		protected void Notify([CallerMemberName] string propertyName = "")
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

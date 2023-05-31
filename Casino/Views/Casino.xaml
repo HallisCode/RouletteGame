@@ -208,7 +208,6 @@
             <Label Content="{Binding player.balance}"/>
         </StackPanel>
 
-        <Button Grid.Column="1" Grid.Row="3" Click="Button_Click">RESET</Button>
         <Rectangle Grid.Column="1" HorizontalAlignment="Center" Height="16" Margin="0,16,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="4"/>
 
     </Grid>

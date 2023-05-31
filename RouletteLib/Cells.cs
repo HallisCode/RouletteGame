@@ -17,16 +17,16 @@ namespace RouletteLib
 		public static readonly int[] greenCells = { 0 };
 
 
-		public static readonly int[] smallFigures = Enumerable.Range(1, 17).ToArray();
+		public static readonly int[] smallFigures = Enumerable.Range(1, 18).ToArray();
 
-		public static readonly int[] largeFigures = Enumerable.Range(17, 37).ToArray();
+		public static readonly int[] largeFigures = Enumerable.Range(19, 18).ToArray();
 
 
-		public static readonly int[] dozen1 = Enumerable.Range(1, 13).ToArray();
+		public static readonly int[] dozen1 = Enumerable.Range(1, 12).ToArray();
 
-		public static readonly int[] dozen2 = Enumerable.Range(13, 25).ToArray();
+		public static readonly int[] dozen2 = Enumerable.Range(13, 12).ToArray();
 
-		public static readonly int[] dozen3 = Enumerable.Range(25, 37).ToArray();
+		public static readonly int[] dozen3 = Enumerable.Range(25, 12).ToArray();
 
 
 		public static readonly int[] column1 = { 1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 };

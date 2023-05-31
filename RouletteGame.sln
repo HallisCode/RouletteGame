@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RouletteLib", "RouletteLib\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasinoWpf", "Casino\CasinoWpf.csproj", "{E1B35C6B-1031-49EC-AC94-36A66F99A633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasinoWpfV2.0", "CasinoWpfV2.0\CasinoWpfV2.0.csproj", "{0EC8FE4D-24EA-4E58-9CF0-CD26B23C875E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasinoWpfV2.0", "CasinoWpfV2.0\CasinoWpfV2.0.csproj", "{0EC8FE4D-24EA-4E58-9CF0-CD26B23C875E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

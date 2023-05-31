@@ -32,7 +32,7 @@ namespace RouletteLib
 				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
 		}
 
-		public OutsideBet Bet(TypeOutsideBet typeOutsideBet, decimal amount)
+		public OutsideBet MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
 			CheckAmountRate(amount);
 
@@ -41,7 +41,7 @@ namespace RouletteLib
 			return (OutsideBet)rate;
 		}
 
-		public InsideBet Bet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
+		public InsideBet MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
 			CheckAmountRate(amount);
 
@@ -76,7 +76,6 @@ namespace RouletteLib
 					break;
 			}
 
-
 			decimal winningMoney = 0m;
 
 			if (win)
@@ -105,7 +104,7 @@ namespace RouletteLib
 			{
 				case (TypeOutsideBet.Red):
 
-					win = Cells.redCells.Contains(winningCell);
+					win = Cells.red.Contains(winningCell);
 
 					multiplier = 1m;
 
@@ -113,7 +112,7 @@ namespace RouletteLib
 
 				case (TypeOutsideBet.Black):
 
-					win = Cells.blackCells.Contains(winningCell);
+					win = Cells.black.Contains(winningCell);
 
 					multiplier = 1m;
 
@@ -265,7 +264,7 @@ namespace RouletteLib
 	/// </summary>
 	public class Roulette
 	{
-		public int[] cells { get; private set; } = Cells.allCells;
+		public int[] cells { get; private set; } = Cells.all;
 
 
 		public int Spin()

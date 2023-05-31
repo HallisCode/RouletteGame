@@ -31,7 +31,7 @@ namespace CasinoWpf
 		{
 			TypeOutsideBet typeOutsideBet = CellOutsideBet.GetType((UIElement)e.Source);
 
-			casinoViewModel.bet = casinoViewModel.table.Bet(typeOutsideBet, casinoViewModel.rate);
+			casinoViewModel.bet = casinoViewModel.table.MakeBet(typeOutsideBet, casinoViewModel.rate);
 		}
 	}
 }

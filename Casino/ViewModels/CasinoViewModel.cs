@@ -15,7 +15,7 @@ namespace CasinoWpf.ViewModels
 	{
 		private int lastIndexCell = 0;
 
-		private int[] allCells = Cells.allCells.Reverse().ToArray();
+		private int[] allCells = Cells.all.Reverse().ToArray();
 
 		private bool isFirstSpin = true;
 

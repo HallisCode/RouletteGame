@@ -13,4 +13,8 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RouletteLib\RouletteLib.csproj" />
+  </ItemGroup>
+
 </Project>

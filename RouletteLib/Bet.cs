@@ -119,13 +119,10 @@ namespace RouletteLib
 					break;
 			}
 
-
 			if (sizeOfArray != numbers.Length)
 				throw new Exception("Количество ставок не соответствует типу ставки!");
 
 			this.numbers = numbers;
 		}
 	}
-
-
 }

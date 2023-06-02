@@ -12,7 +12,7 @@ namespace RouletteLib
 	{
 		public Roulette roulette { get; private set; } = new Roulette();
 
-		public Bet? rate { get; private set; }
+		public Bet? bet { get; private set; }
 
 		public decimal minRate { get; private set; }
 
@@ -36,18 +36,18 @@ namespace RouletteLib
 		{
 			CheckAmountRate(amount);
 
-			rate = new OutsideBet(typeOutsideBet: typeOutsideBet, amount: amount);
+			bet = new OutsideBet(typeOutsideBet: typeOutsideBet, amount: amount);
 
-			return (OutsideBet)rate;
+			return (OutsideBet)bet;
 		}
 
 		public InsideBet MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
 			CheckAmountRate(amount);
 
-			rate = new InsideBet(typeInsideBet: typeInsideBet, amount: amount, numbers: numbers);
+			bet = new InsideBet(typeInsideBet: typeInsideBet, amount: amount, numbers: numbers);
 
-			return (InsideBet)rate;
+			return (InsideBet)bet;
 		}
 
 		/// <summary>
@@ -55,7 +55,7 @@ namespace RouletteLib
 		/// </summary>
 		public int Spin()
 		{
-			if (rate is null) throw new Exception("Отсутствует ставка.");
+			if (bet is null) throw new Exception("Отсутствует ставка.");
 
 			int winningCell = roulette.Spin();
 
@@ -63,16 +63,16 @@ namespace RouletteLib
 
 			decimal multiplier = 0m;
 
-			switch (rate)
+			switch (bet)
 			{
 				case (OutsideBet):
 
-					OutsideBetHandler((OutsideBet)rate, winningCell, out win, out multiplier);
+					OutsideBetHandler((OutsideBet)bet, winningCell, out win, out multiplier);
 					break;
 
 				case (InsideBet):
 
-					InsideBetHandler((InsideBet)rate, winningCell, out win, out multiplier);
+					InsideBetHandler((InsideBet)bet, winningCell, out win, out multiplier);
 					break;
 			}
 
@@ -80,20 +80,20 @@ namespace RouletteLib
 
 			if (win)
 			{
-				winningMoney = rate.amount * multiplier;
+				winningMoney = bet.amount * multiplier;
 
-				rate.status = RateStatus.Winning;
+				bet.status = RateStatus.Winning;
 
-				rate.winningAmount = winningMoney;
+				bet.winningAmount = winningMoney;
 			}
 			else
 			{
-				rate.status = RateStatus.Loss;
+				bet.status = RateStatus.Loss;
 
-				rate.winningAmount = winningMoney;
+				bet.winningAmount = winningMoney;
 			}
 
-			rate = null;
+			bet = null;
 
 			return winningCell;
 		}
@@ -208,11 +208,11 @@ namespace RouletteLib
 			}
 		}
 
-		private void InsideBetHandler(InsideBet rateDomestic, int winningCell, out bool win, out decimal multiplier)
+		private void InsideBetHandler(InsideBet insideBet, int winningCell, out bool win, out decimal multiplier)
 		{
-			win = rateDomestic.numbers.Contains(winningCell);
+			win = insideBet.numbers.Contains(winningCell);
 
-			switch (rateDomestic.type)
+			switch (insideBet.type)
 			{
 				case (TypeInsideBet.StraightUp):
 

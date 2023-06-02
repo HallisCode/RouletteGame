@@ -6,18 +6,18 @@ namespace CasinoWpfV2._0.Models
 {
 
 	/// <summary>
-	/// Реализует логику рулетки с 37 ячейками.
+	/// Реализует логику стола с рулеткой.
 	/// </summary>
-	internal class Table : Model
+	internal class TableModel : Model
 	{
 		private RouletteLib.Table _table = new RouletteLib.Table();
 
 		private Bet? bet;
 
 
-		public Wheel wheel { get; private set; }
+		public WheelModel wheel { get; private set; }
 
-		public Player player { get; private set; }
+		public PlayerModel player { get; private set; }
 
 
 		private decimal _betAmmount;
@@ -34,7 +34,7 @@ namespace CasinoWpfV2._0.Models
 		}
 
 
-		public Table(Player player, Wheel wheel)
+		public TableModel(PlayerModel player, WheelModel wheel)
 		{
 			this.player = player;
 
@@ -42,18 +42,19 @@ namespace CasinoWpfV2._0.Models
 			this.wheel.CompletedRotate += PayOut;
 		}
 
-
 		public void MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
-			_table.MakeBet(typeOutsideBet, amount);
+			bet = _table.MakeBet(typeOutsideBet, amount);
 		}
 
 		public void MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
-			_table.MakeBet(typeInsideBet, amount, numbers);
+			bet = _table.MakeBet(typeInsideBet, amount, numbers);
 		}
 
-
+		/// <summary>
+		/// Запускает вращение колеса.
+		/// </summary>
 		public void SpinWheel()
 		{
 			int winningCell = _table.Spin();
@@ -61,6 +62,12 @@ namespace CasinoWpfV2._0.Models
 			wheel.Spin(winningCell);
 		}
 
+		/// <summary>
+		/// Представляет делегат EventHandler. Произодит выплату игроку после вращения колеса.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		/// <exception cref="Exception">При отсутствии ставки на столе вызывает исключение.</exception>
 		private void PayOut(object? sender, EventArgs e)
 		{
 			if (bet is null) throw new Exception("Невозможно произвести выплату при отсутствии ставки!");

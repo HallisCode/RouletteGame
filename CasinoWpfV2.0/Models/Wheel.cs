@@ -8,7 +8,10 @@ using System.Windows.Media.Animation;
 
 namespace CasinoWpfV2._0.Models
 {
-	internal class Wheel
+	/// <summary>
+	/// Реализует логику рулетки с 37 ячейками.
+	/// </summary>
+	internal class WheelModel
 	{
 		private Image _wheel;
 
@@ -23,14 +26,14 @@ namespace CasinoWpfV2._0.Models
 
 		private int lastIndexCell;
 
-		private int[] cells = Cells.all.Reverse().ToArray();
+		private readonly int[] cells = Cells.all.Reverse().ToArray();
 
 		private bool isFirstSpin;
 
 		public event EventHandler? CompletedRotate;
+	
 
-
-		public Wheel(Image wheel)
+		public WheelModel(Image wheel)
 		{
 			_wheel = wheel;
 
@@ -50,7 +53,10 @@ namespace CasinoWpfV2._0.Models
 			rotateAnimation.Completed += CompletedRotate;
 		}
 
-
+		/// <summary>
+		/// Запускает анимацию вращения рулетки.
+		/// </summary>
+		/// <param name="winningCell"></param>
 		public void Spin(int winningCell)
 		{
 			int currentIndexCell = Array.IndexOf(cells, winningCell);

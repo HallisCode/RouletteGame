@@ -3,7 +3,10 @@
 
 namespace CasinoWpfV2._0.Models
 {
-	internal class Player : Model
+	/// <summary>
+	/// Реализует логику игрока.
+	/// </summary>
+	internal class PlayerModel : Model
 	{
 		public string name { get; private set; }
 
@@ -23,7 +26,7 @@ namespace CasinoWpfV2._0.Models
 			}
 		}
 
-		public Player(string name, string lastName, decimal balance)
+		public PlayerModel(string name, string lastName, decimal balance)
 		{
 			this.name = name;
 

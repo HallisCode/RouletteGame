@@ -264,7 +264,7 @@ namespace RouletteLib
 	/// </summary>
 	public class Roulette
 	{
-		public int[] cells { get; private set; } = Cells.all;
+		public readonly int[] cells = Cells.all;
 
 
 		public int Spin()

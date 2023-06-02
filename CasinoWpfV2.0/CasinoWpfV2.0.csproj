@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Views\" />
+    <Folder Include="Design\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -132,7 +132,7 @@ namespace CasinoWpf.ViewModels
 
 		public bool CheckAvailabilitywheel()
 		{
-			if (_wheel is null || table.rate is null || player.balance is 0) return false;
+			if (_wheel is null || table.bet is null || player.balance is 0) return false;
 
 			return true;
 		}

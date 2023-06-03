@@ -10,11 +10,18 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Design\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RouletteLib\RouletteLib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Design\Fonts\Roboto-Regular.ttf" />
+	  
+    <Resource Include="Design\Icons\LaunchButton.xaml" />
+	<Resource Include="Design\Icons\Table.xaml"></Resource>
+  </ItemGroup>
+
 </Project>
+

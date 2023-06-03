@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:CasinoWpfV2._0"
              StartupUri="MVVM/Views/Game.xaml">
     <Application.Resources>
-         
+        
+        <FontFamily x:Key="RobotoRegular">
+            /Design/Fontrs/Roboto-Regular.ttf
+        </FontFamily>
+        
     </Application.Resources>
 </Application>

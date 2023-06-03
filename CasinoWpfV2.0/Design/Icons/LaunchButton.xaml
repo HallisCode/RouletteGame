@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="launchButtonGeometry">F1 M600,600z M0,0z M600,300C600,304.22,599.91,308.4,599.73,312.58A299.7,299.7,0,0,1,306.36,599.93C304.29,599.98,302.2,600,300.11,600L299.89,600A301.86,301.86,0,0,1,268.33,598.36L267.89,598.36C261.57,597.66,255.23,596.78,248.89,595.68L248.89,595.68A296.63,296.63,0,0,1,200.05,583L200.05,583.06 199.85,583 199.59,582.91 199.59,582.81A296.45,296.45,0,0,1,153.59,562.04L153.59,562.04A299.59,299.59,0,0,1,111.42,533.49L111.33,533.6 111.2,533.49 110.96,533.3 110.96,533.24A299.36,299.36,0,0,1,74.58,498.24L74.58,498.24A298.91,298.91,0,0,1,44.29,457.3L44.13,457.4 44.07,457.3 43.88,457 44.05,456.9A298.74,298.74,0,0,1,21.37,411.84L21.19,411.4A295.63,295.63,0,0,1,6.64,363.08L6.43,363.13C6.43,363.13,6.43,363.13,6.43,363.08L6.34,362.65 6.5,362.65A294.26,294.26,0,0,1,0.21,312.65L0.27,312.65C0.09,308.4,0,304.22,0,300A303.71,303.71,0,0,1,2.41,261.74L2.19,261.74C2.19,261.59,2.19,261.43,2.26,261.27L2.52,261.27C3.06,257.12,3.69,252.99,4.41,248.83A304.25,304.25,0,0,1,13.31,211.54L13.25,211.54A293.41,293.41,0,0,1,32.1,164.77L31.93,164.69 32.14,164.25 32.34,164.35A295.18,295.18,0,0,1,58.82,121.46L59.12,121.06A301,301,0,0,1,92.48,83.3L92.37,83.19 92.75,82.83 92.85,82.95A302.81,302.81,0,0,1,132.53,51.08L132.53,51.08A299.22,299.22,0,0,1,176.53,26.54L176.53,26.46C176.68,26.39,176.85,26.31,177.01,26.25L177.07,26.37A298.18,298.18,0,0,1,225,9.47L225,9.47A297.52,297.52,0,0,1,274.66,1.08Q284.09,0.27,293.66,0.0800000000000001C295.72,0.0800000000000001 297.79,0.0100000000000001 299.85,0.0100000000000001 301.91,0.0100000000000001 304.13,0.0100000000000001 306.26,0.0800000000000001Q315.84,0.28,325.26,1.08L326.02,1.15 326.02,1.15Q338.59,2.23 351.27,4.43 363.95,6.63 376.15,9.83L376.15,9.77A298.53,298.53,0,0,1,467.84,51.31A300.54,300.54,0,0,1,567.84,164.76A294.38,294.38,0,0,1,586.84,211.99A297.74,297.74,0,0,1,597.53,261.73A303.71,303.71,0,0,1,600,300z</Geometry>
+  <DrawingGroup x:Key="launchButtonDrawingGroup" ClipGeometry="M0,0 V600 H600 V0 H0 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="9.170348675979767E-06" Y="0" />
+    </DrawingGroup.Transform>
+    <GeometryDrawing Geometry="{StaticResource launchButtonGeometry}">
+      <GeometryDrawing.Brush>
+        <RadialGradientBrush Center="305.18,305.29" RadiusX="305.15" RadiusY="305.15" GradientOrigin="305.18,305.29" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1" Transform="0.98,0,0,0.98,-0.08,-0.09">
+          <GradientStop Color="#FF242424" Offset="0" />
+          <GradientStop Color="#FF282828" Offset="0.46" />
+          <GradientStop Color="#FF353535" Offset="0.93" />
+          <GradientStop Color="#FF373737" Offset="1" />
+        </RadialGradientBrush>
+      </GeometryDrawing.Brush>
+    </GeometryDrawing>
+    <DrawingGroup Transform="1,0,0,1,130.57,344.81">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="153.34" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3" Characters="SPIN" GlyphIndices="54 51 44 49" AdvanceWidths="81.4633333333333 85.88 40.8066666666667 114.706666666667" GlyphOffsets="0,0 0,0 0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="launchButton" Drawing="{StaticResource launchButtonDrawingGroup}" />
+</ResourceDictionary>

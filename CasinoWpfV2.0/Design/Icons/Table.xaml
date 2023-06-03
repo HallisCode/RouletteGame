@@ -1,0 +1,729 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="tableRouletteGeometry1">F1 M1823,782.99z M0,0z M520,660.83L520,780 165.45,780C145.87,780,130,767.31,130,751.67L130,660.83z M1560,260L1560,400.82 1690,400.82 1690,260z M1560,119.16L1560,260 1430,260 1430,119.16z M1560,400.82L1560,541.67 1430,541.67 1430,400.82z M1430,400.82L1430,541.67 1300,541.67 1300,400.82z M1430,260L1430,400.82 1300,400.82 1300,260z M1300,260L1300,400.82 1170,400.82 1170,260z M1170,400.82L1170,541.67 1040,541.67 1040,400.82z M1170,119.16L1170,260 1040,260 1040,119.16z M1040,260L1040,400.82 910,400.82 910,260z M910,260L910,400.82 780,400.82 780,260z M780,119.16L780,260 650,260 650,119.16z M782,400.82L782,541.67 652,541.67 652,400.82z M652,400.82L652,541.67 522,541.67 522,400.82z M652,260L652,400.82 522,400.82 522,260z M522,260L522,400.82 392,400.82 392,260z M392,119.16L392,260 262,260 262,119.16z M392,400.82L392,541.67 262,541.67 262,400.82z M262,260L262,400.82 132,400.82 132,260z</Geometry>
+  <Geometry x:Key="tableRouletteGeometry2">F1 M1823,782.99z M0,0z M910,660.83L910,780 520,780 520,660.83z M1560,119.16L1560,260 1690,260 1690,119.16z M1688.49,399.62L1688.49,540.46 1558.49,540.46 1558.49,399.62z M1558.49,258.8L1558.49,399.62 1428.49,399.62 1428.49,258.8z M1430.49,119.56L1430.49,260.4 1300.49,260.4 1300.49,119.56z M1300.49,401.23L1300.49,542.07 1170.49,542.07 1170.49,401.23z M1300.49,119.56L1300.49,260.4 1170.49,260.4 1170.49,119.56z M1170.49,260.4L1170.49,401.23 1040.49,401.23 1040.49,260.4z M1040.49,401.23L1040.49,542.07 910.49,542.07 910.49,401.23z M910.49,401.23L910.49,542.07 780.49,542.07 780.49,401.23z M1040.49,119.56L1040.49,260.4 910.49,260.4 910.49,119.56z M910.49,119.56L910.49,260.4 780.49,260.4 780.49,119.56z M780.5,260.4L780.5,401.23 650.5,401.23 650.5,260.4z M650.5,119.56L650.5,260.4 520.5,260.4 520.5,119.56z M520.5,401.23L520.5,542.07 390.5,542.07 390.5,401.23z M520.5,119.56L520.5,260.4 390.5,260.4 390.5,119.56z M260.5,119.56L260.5,260.4 130.5,260.4 130.5,119.56z M390.5,260.4L390.5,401.23 260.5,401.23 260.5,260.4z M260.5,401.23L260.5,542.07 130.5,542.07 130.5,401.23z</Geometry>
+  <Geometry x:Key="tableRouletteGeometry3">F1 M1823,782.99z M0,0z M1690,119.16L1690,541.66 130,541.66 130,119.16z M130,119.16L130,541.66 650,541.66 650,119.16z M650,119.16L650,541.66 1170,541.66 1170,119.16z M1170,119.16L1170,541.66 1690,541.66 1690,119.16z M130,400.83L130,541.66 1784.55,541.66C1804.13,541.66,1820,528.98,1820,513.34L1820,400.83z M130,260L130,400.83 1820,400.83 1820,260z M0,147.48L0,513.34C0,529,15.87,541.66,35.45,541.66L130,541.66 130,119.16 35.45,119.16C15.87,119.16,0,131.84,0,147.48z M130,119.16L130,260 1820,260 1820,147.48C1820,131.84,1804.13,119.16,1784.55,119.16z M130,28.32L130,119.16 650,119.16 650,0 165.45,0C145.87,0,130,12.68,130,28.32z M130,541.67L130,660.83 910,660.83 910,541.67z M130,119.16L130,541.66 260,541.66 260,119.16z M260,119.16L260,541.66 390,541.66 390,119.16z M390,119.16L390,541.66 520,541.66 520,119.16z M520,119.16L520,541.66 650,541.66 650,119.16z M650,0L650,119.16 1170,119.16 1170,0z M650,119.16L650,541.66 780,541.66 780,119.16z M780,119.16L780,541.66 910,541.66 910,119.16z M910,541.67L910,660.83 1690,660.83 1690,541.67z M910,119.16L910,541.66 1040,541.66 1040,119.16z M1040,119.16L1040,541.66 1170,541.66 1170,119.16z M1170,0L1170,119.16 1690,119.16 1690,28.32C1690,12.68,1674.13,0,1654.55,0z M1170,119.16L1170,541.66 1300,541.66 1300,119.16z M1300,119.16L1300,541.66 1430,541.66 1430,119.16z M1430,119.16L1430,541.66 1560,541.66 1560,119.16z M1560,119.16L1560,541.66 1690,541.66 1690,119.16z M130,660.83L130,751.67C130,767.31,145.87,779.99,165.45,779.99L1654.55,779.99C1674.13,779.99,1690,767.31,1690,751.67L1690,660.83z M520,660.83L520,780 M910,660.83L910,780 M1300,660.84L1300,780</Geometry>
+  <DrawingGroup x:Key="tableRouletteDrawingGroup" ClipGeometry="M0,0 V782.99 H1823 V0 H0 Z">
+    <DrawingGroup Transform="1,0,0,1,1.5,1.5">
+      <GeometryDrawing Geometry="{StaticResource tableRouletteGeometry1}">
+        <GeometryDrawing.Brush>
+          <RadialGradientBrush Center="1586.18,441.98" RadiusX="578.49" RadiusY="578.49" GradientOrigin="1586.18,441.98" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1" Transform="1.06,0,0,0.93,-768.4,38.03">
+            <GradientStop Color="#FF242424" Offset="0" />
+            <GradientStop Color="#FF373737" Offset="1" />
+          </RadialGradientBrush>
+        </GeometryDrawing.Brush>
+      </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1,0,0,1,1.5,1.5">
+      <GeometryDrawing Geometry="{StaticResource tableRouletteGeometry2}">
+        <GeometryDrawing.Brush>
+          <RadialGradientBrush Center="1586.41,441.98" RadiusX="578.34" RadiusY="578.34" GradientOrigin="1586.41,441.98" MappingMode="Absolute" SpreadMethod="Pad" Opacity="1" Transform="1.06,0,0,0.93,-768.4,38.03">
+            <GradientStop Color="#FFBF2521" Offset="0" />
+            <GradientStop Color="#FFDA2F24" Offset="1" />
+          </RadialGradientBrush>
+        </GeometryDrawing.Brush>
+      </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1,0,0,1,1.5,1.5">
+      <GeometryDrawing Geometry="{StaticResource tableRouletteGeometry3}">
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FFEFEFEF" Thickness="3" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+      </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,42.65,366.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="81.9" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="0" GlyphIndices="19" AdvanceWidths="44.15" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,176.06,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="1" GlyphIndices="20" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,176.06,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="2" GlyphIndices="21" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,176.06,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="3" GlyphIndices="22" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,306.06,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="4" GlyphIndices="23" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,306.06,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="5" GlyphIndices="24" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,306.06,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="6" GlyphIndices="25" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,436.06,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="7" GlyphIndices="26" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,436.06,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="8" GlyphIndices="27" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,436.06,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1" ClusterMap="0" Characters="9" GlyphIndices="28" AdvanceWidths="37.8433333333333" GlyphOffsets="0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,545.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="10" GlyphIndices="20 19" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,545.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="11" GlyphIndices="20 20" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,545.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="12" GlyphIndices="20 21" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,675.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="13" GlyphIndices="20 22" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,675.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="14" GlyphIndices="20 23" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,675.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="15" GlyphIndices="20 24" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,805.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="16" GlyphIndices="20 25" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,805.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="17" GlyphIndices="20 26" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,805.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="18" GlyphIndices="20 27" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,935.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="19" GlyphIndices="20 28" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,935.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="20" GlyphIndices="21 19" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,935.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="21" GlyphIndices="21 20" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1065.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="22" GlyphIndices="21 21" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1065.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="23" GlyphIndices="21 22" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1065.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="24" GlyphIndices="21 23" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1195.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="25" GlyphIndices="21 24" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1195.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="26" GlyphIndices="21 25" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1195.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="27" GlyphIndices="21 26" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1325.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="28" GlyphIndices="21 27" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1325.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="29" GlyphIndices="21 28" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1325.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="30" GlyphIndices="22 19" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1455.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="31" GlyphIndices="22 20" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1455.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="32" GlyphIndices="22 21" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1455.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="33" GlyphIndices="22 22" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1585.62,502.77">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="34" GlyphIndices="22 23" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1585.62,361.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="35" GlyphIndices="22 24" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1585.62,221.51">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" CaretStops="1 1 1" ClusterMap="0 1" Characters="36" GlyphIndices="22 25" AdvanceWidths="37.8433333333333 37.8433333333333" GlyphOffsets="0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,302.05,632.78">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4 5 6 7 8 9" Characters="Small Figu" GlyphIndices="54 80 68 79 79 3 41 76 74 88" AdvanceWidths="37.2933333333333 60.4666666666667 35.7166666666667 17 17 19.23 34.2766666666667 17 41.34 39.7266666666667" GlyphOffsets="0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="326.73,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="r" GlyphIndices="85" AdvanceWidths="24.4066666666667" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="349.83,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="es" GlyphIndices="72 86" AdvanceWidths="36.71 29.7866666666667" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1081.94,632.78">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="La" GlyphIndices="47 68" AdvanceWidths="33.0433333333333 35.7166666666667" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="75.96,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="r" GlyphIndices="85" AdvanceWidths="24.4066666666667" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="99.06,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4 5 6" Characters="ge Figu" GlyphIndices="74 72 3 41 76 74 88" AdvanceWidths="41.34 36.71 19.23 34.2766666666667 17 41.34 39.7266666666667" GlyphOffsets="0,0 0,0 0,0 0,0 0,0 0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="326.93,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="r" GlyphIndices="85" AdvanceWidths="24.4066666666667" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="350.04,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="es" GlyphIndices="72 86" AdvanceWidths="36.71 29.7866666666667" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,237.7,751.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4" Characters="Black" GlyphIndices="37 79 68 70 78" AdvanceWidths="40.24 17 35.7166666666667 32.4266666666667 34.8933333333333" GlyphOffsets="0,0 0,0 0,0 0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,654.28,751.94">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2" Characters="Red" GlyphIndices="53 72 71" AdvanceWidths="39.9333333333333 36.71 41.34" GlyphOffsets="0,0 0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1029.51,751.95">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="E" GlyphIndices="40" AdvanceWidths="35.51" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="39.01,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="v" GlyphIndices="89" AdvanceWidths="33.6266666666667" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="72.56,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="en" GlyphIndices="72 81" AdvanceWidths="36.71 39.7266666666667" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1430.42,751.95">
+      <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+        <GlyphRunDrawing.GlyphRun>
+          <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2" Characters="Odd" GlyphIndices="50 71 71" AdvanceWidths="52.9233333333333 41.34 41.34" GlyphOffsets="0,0 0,0 0,0" Language="en-us">
+            <GlyphRun.GlyphTypeface>
+              <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+            </GlyphRun.GlyphTypeface>
+          </GlyphRun>
+        </GlyphRunDrawing.GlyphRun>
+      </GlyphRunDrawing>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,220.89,87.41">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="D" GlyphIndices="39" AdvanceWidths="49.2233333333333" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="46.03,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="oz" GlyphIndices="82 93" AdvanceWidths="41.1333333333333 31.74" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="119.76,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4 5" Characters="en one" GlyphIndices="72 81 3 82 81 72" AdvanceWidths="36.71 39.7266666666667 19.23 41.1333333333333 39.7266666666667 36.71" GlyphOffsets="0,0 0,0 0,0 0,0 0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,741.02,87.41">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="D" GlyphIndices="39" AdvanceWidths="49.2233333333333" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="46.03,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="oz" GlyphIndices="82 93" AdvanceWidths="41.1333333333333 31.74" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="119.76,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4 5" Characters="en two" GlyphIndices="72 81 3 87 90 82" AdvanceWidths="36.71 39.7266666666667 19.23 23.79 50.73 41.1333333333333" GlyphOffsets="0,0 0,0 0,0 0,0 0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+    <DrawingGroup Transform="1.04,0,0,1,1238.53,87.41">
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="0,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="D" GlyphIndices="39" AdvanceWidths="49.2233333333333" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="46.03,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="oz" GlyphIndices="82 93" AdvanceWidths="41.1333333333333 31.74" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="119.76,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2 3 4" Characters="en th" GlyphIndices="72 81 3 87 75" AdvanceWidths="36.71 39.7266666666667 19.23 23.79 39.7266666666667" GlyphOffsets="0,0 0,0 0,0 0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="274.66,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="r" GlyphIndices="85" AdvanceWidths="24.4066666666667" GlyphOffsets="0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+      <DrawingGroup>
+        <GlyphRunDrawing ForegroundBrush="#FFEFEFEF">
+          <GlyphRunDrawing.GlyphRun>
+            <GlyphRun PixelsPerDip="1.25" BaselineOrigin="297.76,0" FontRenderingEmSize="70.2" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="ee" GlyphIndices="72 72" AdvanceWidths="36.71 36.71" GlyphOffsets="0,0 0,0" Language="en-us">
+              <GlyphRun.GlyphTypeface>
+                <GlyphTypeface FontUri="C:\WINDOWS\FONTS\SEGOEUI.TTF" StyleSimulations="None" />
+              </GlyphRun.GlyphTypeface>
+            </GlyphRun>
+          </GlyphRunDrawing.GlyphRun>
+        </GlyphRunDrawing>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="table" Drawing="{StaticResource tableRouletteDrawingGroup}" />
+</ResourceDictionary>

@@ -1,5 +1,4 @@
-﻿using CasinoWpf.Models;
-using CasinoWpf.ViewModels;
+﻿using CasinoWpf.ViewModels;
 using System.Windows;
 
 

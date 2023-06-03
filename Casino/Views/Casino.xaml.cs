@@ -1,10 +1,8 @@
 ﻿using CasinoWpf.Models;
 using CasinoWpf.Utils;
 using CasinoWpf.ViewModels;
-using System.Drawing;
-using System.Windows;
 using RouletteLib;
-using System.Windows.Media;
+using System.Windows;
 
 namespace CasinoWpf
 {

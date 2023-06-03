@@ -5,7 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CasinoWpfV2._0.MVVM.Views"
         mc:Ignorable="d"
-        Title="Casino" Height="500" Width="1000" FontFamily="Arial" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Casino" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Design/Styles/main.xaml"/>
+                <ResourceDictionary Source="/Design/Icons/LaunchButton.xaml"/>
+                <ResourceDictionary Source="/Design/Icons/Table.xaml"/>
+                <ResourceDictionary Source="/Design/Icons/Wheel.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Window.Background>
         <RadialGradientBrush Center="0.5,0.5" RadiusX="0.8" RadiusY="0.8" GradientOrigin="0.5,0.5">
             <GradientStop Color="#FF2F670E" Offset="0.2"/>
@@ -25,7 +37,7 @@
             <ColumnDefinition Width="20px"/>
         </Grid.ColumnDefinitions>
 
-
+        <!--Прямоугольники : верхний и нижний.-->
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Rectangle>
                 <Rectangle.Fill>
@@ -45,6 +57,64 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
+        </Grid>
+
+        <!--Поля связанные с ФИО игрока-->
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Имя" Margin="0px 0px 20px 0px"/>
+                <Label Content="Фамилия"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Balance$ :" Margin="0px 0px 10px 0px"/>
+                <Label Content="1000000"/>
+            </StackPanel>
+
+        </Grid>
+
+        <!--Поле ввода ставки-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Label Content="Ставка :" Margin="0px 0px 10px 0px"/>
+                <TextBox VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
+            </StackPanel>
+        </Grid>
+        
+        <!--Рулетка и поле для ставок-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+             
+            <!--Рулетка-->
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50px"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="{StaticResource launchButton}" Margin="60px">
+
+                </Image>
+
+                <Image Grid.Column="0"  Source="{StaticResource wheel}" >
+
+                </Image>
+            </Grid>
+            
+            <!--Поле для ставок-->
+            <Grid Grid.Column="1">
+                <Image Source="{StaticResource table}">
+
+                </Image>
+            </Grid>
+
         </Grid>
 
     </Grid>

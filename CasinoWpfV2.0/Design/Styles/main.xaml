@@ -4,7 +4,7 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
-    
+
     <Style TargetType="TextBox">
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="White"/>
@@ -15,4 +15,35 @@
     <Style TargetType="Window">
         <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}"/>
     </Style>
+
+    <Style x:Key="TransperentButton" TargetType="Button">
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="Transparent" BorderBrush="Transparent"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style.Triggers>
+            
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+            </Trigger>
+            
+        </Style.Triggers>
+        
+    </Style>
+
+    <Style x:Key="Field">
+        <Style.Resources>
+            <Style TargetType="Rectangle">
+                <Setter Property="Fill" Value="HotPink"/>
+                <Setter Property="Opacity" Value="0.5"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
 </ResourceDictionary>

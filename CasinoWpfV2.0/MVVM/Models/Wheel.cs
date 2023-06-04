@@ -1,6 +1,7 @@
 ﻿using RouletteLib;
 using System;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -8,89 +9,101 @@ using System.Windows.Media.Animation;
 
 namespace CasinoWpfV2._0.MVVM.Models
 {
-    /// <summary>
-    /// Реализует логику рулетки с 37 ячейками.
-    /// </summary>
-    internal class WheelModel
-    {
-        private Image _wheel;
+	/// <summary>
+	/// Реализует логику рулетки с 37 ячейками.
+	/// </summary>
+	internal class WheelModel
+	{
+		private Image _wheel;
 
-        private RotateTransform rotateTransform;
+		private RotateTransform rotateTransform;
 
-        private DoubleAnimation rotateAnimation;
+		private DoubleAnimation rotateAnimation;
 
-        private const int secondsAnimation = 8;
+		private const int secondsAnimation = 8;
 
-        private const int additionalSpins = 5;
-
-
-        private int lastIndexCell;
-
-        private readonly int[] cells = Cells.all.Reverse().ToArray();
-
-        private bool isFirstSpin;
-
-        public event EventHandler? CompletedRotate;
+		private const int additionalSpins = 5;
 
 
-        public WheelModel(Image wheel)
-        {
-            _wheel = wheel;
+		private int lastIndexCell;
 
-            QuarticEase fluidAnimation = new QuarticEase()
-            {
-                EasingMode = EasingMode.EaseInOut
-            };
+		private readonly int[] cells = Cells.all.Reverse().ToArray();
 
-            rotateAnimation = new DoubleAnimation()
-            {
-                Duration = TimeSpan.FromSeconds(secondsAnimation),
-                EasingFunction = fluidAnimation
-            };
+		private bool isFirstSpin = true;
+
+		public event EventHandler Completed
+		{
+			add
+			{
+				rotateAnimation.Completed += value;
+			}
+			remove
+			{
+				rotateAnimation.Completed -= value;
+			}
+		}
 
 
-            rotateTransform = (RotateTransform)_wheel.RenderTransform;
-            rotateAnimation.Completed += CompletedRotate;
-        }
+		public WheelModel(Image wheel)
+		{
+			_wheel = wheel;
 
-        /// <summary>
-        /// Запускает анимацию вращения рулетки.
-        /// </summary>
-        /// <param name="winningCell"></param>
-        public void Spin(int winningCell)
-        {
-            int currentIndexCell = Array.IndexOf(cells, winningCell);
+			QuarticEase fluidAnimation = new QuarticEase()
+			{
+				EasingMode = EasingMode.EaseInOut
+			};
 
-            int rotateOn = 0;
+			rotateAnimation = new DoubleAnimation()
+			{
+				Duration = TimeSpan.FromSeconds(secondsAnimation),
+				EasingFunction = fluidAnimation
+			};
 
-            if (currentIndexCell - lastIndexCell > 0)
-            {
-                int[] betweenElements = cells.Skip(lastIndexCell).Take(currentIndexCell - lastIndexCell).ToArray();
 
-                rotateOn = betweenElements.Count();
-            }
-            else if (currentIndexCell - lastIndexCell < 0)
-            {
-                rotateOn += cells.Length - lastIndexCell;
+			_wheel.RenderTransform = new RotateTransform();
+			_wheel.RenderTransformOrigin = new Point(0.5, 0.5);
 
-                int[] betweenElements = cells.Take(currentIndexCell).ToArray();
+			rotateTransform = (RotateTransform)_wheel.RenderTransform;
+		}
 
-                rotateOn += betweenElements.Count();
-            }
+		/// <summary>
+		/// Запускает анимацию вращения рулетки.
+		/// </summary>
+		/// <param name="winningCell"></param>
+		public void Spin(int winningCell)
+		{
+			int currentIndexCell = Array.IndexOf(cells, winningCell);
 
-            if (isFirstSpin)
-            {
-                isFirstSpin = false;
+			int rotateOn = 0;
 
-                rotateOn += 1;
-            }
+			if (currentIndexCell - lastIndexCell > 0)
+			{
+				int[] betweenElements = cells.Skip(lastIndexCell).Take(currentIndexCell - lastIndexCell).ToArray();
 
-            rotateAnimation.From = rotateTransform.Angle;
-            rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / cells.Length) + 360d * additionalSpins;
+				rotateOn = betweenElements.Count();
+			}
+			else if (currentIndexCell - lastIndexCell < 0)
+			{
+				rotateOn += cells.Length - lastIndexCell;
 
-            rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+				int[] betweenElements = cells.Take(currentIndexCell).ToArray();
 
-            lastIndexCell = currentIndexCell;
-        }
-    }
+				rotateOn += betweenElements.Count();
+			}
+
+			if (isFirstSpin)
+			{
+				isFirstSpin = false;
+
+				rotateOn += 1;
+			}
+
+			rotateAnimation.From = rotateTransform.Angle;
+			rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / cells.Length) + 360d * additionalSpins;
+
+			rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+			lastIndexCell = currentIndexCell;
+		}
+	}
 }

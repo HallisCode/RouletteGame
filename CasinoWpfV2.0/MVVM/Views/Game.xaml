@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CasinoWpfV2._0.MVVM.Views"
+        xmlns:local="clr-namespace:CasinoWpfV2._0.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=local:CasinoViewModel}"
         mc:Ignorable="d"
         Title="Casino" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
@@ -67,12 +67,12 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Label Content="Имя" Margin="0px 0px 20px 0px"/>
-                <Label Content="Фамилия"/>
+                <Label Content="{Binding player.name, FallbackValue=Имя}" Margin="0px 0px 20px 0px"/>
+                <Label Content="{Binding player.lastName, FallbackValue=Фамилия}"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Label Content="Balance$ :" Margin="0px 0px 10px 0px"/>
-                <Label Content="1000000"/>
+                <Label Content="{Binding player.balance, FallbackValue=1000000}"/>
             </StackPanel>
 
         </Grid>
@@ -81,17 +81,17 @@
         <Grid Grid.Row="2" Grid.Column="1">
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Label Content="Ставка :" Margin="0px 0px 10px 0px"/>
-                <TextBox VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
+                <TextBox Text="{Binding betAmount}" VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
             </StackPanel>
         </Grid>
-        
+
         <!--Рулетка и поле для ставок-->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-             
+
             <!--Рулетка-->
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
@@ -99,20 +99,127 @@
                     <ColumnDefinition Width="50px"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Source="{StaticResource launchButton}" Margin="60px">
+
+                <Image Grid.Column="0"  Margin="60px"  Source="{StaticResource launchButton}" >
 
                 </Image>
 
-                <Image Grid.Column="0"  Source="{StaticResource wheel}" >
+                <Image x:Name="Wheel" Grid.Column="0"  Source="{StaticResource wheel}" >
 
                 </Image>
+
+                <Button Grid.Column="0" Command="{Binding SpinWheelCommand}" Margin="60px" Style="{StaticResource TransperentButton}" FocusVisualStyle="{StaticResource TransperentButton}">
+                </Button>
+
             </Grid>
-            
+
             <!--Поле для ставок-->
             <Grid Grid.Column="1">
+
                 <Image Source="{StaticResource table}">
 
                 </Image>
+                
+                <!--Внешние ставки и ставки на число-->
+                <Grid Style="{StaticResource Field}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="74"/>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="44*"/>
+                        <RowDefinition Height="45*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="38*"/>
+                        <RowDefinition Height="73"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--Внешние ставки-->
+                    <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"/>
+                    <Rectangle Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4"/>
+                    <Rectangle Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="4"/>
+
+                    <Rectangle Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6"/>
+                    <Rectangle Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="6"/>
+
+                    <Rectangle Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Rectangle Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3"/>
+
+                    <Rectangle Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="3"/>
+                    <Rectangle Grid.Row="6" Grid.Column="10" Grid.ColumnSpan="3"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="13"/>
+                    <Rectangle Grid.Row="3" Grid.Column="13"/>
+                    <Rectangle Grid.Row="2" Grid.Column="13"/>
+
+                    <!--Числа-->
+                    <Rectangle Grid.Row="2" Grid.Column="0" Grid.RowSpan="3"/>
+                    
+                    <Rectangle Grid.Row="4" Grid.Column="1"/>
+                    <Rectangle Grid.Row="3" Grid.Column="1"/>
+                    <Rectangle Grid.Row="2" Grid.Column="1"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="2"/>
+                    <Rectangle Grid.Row="3" Grid.Column="2"/>
+                    <Rectangle Grid.Row="2" Grid.Column="2"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="3"/>
+                    <Rectangle Grid.Row="3" Grid.Column="3"/>
+                    <Rectangle Grid.Row="2" Grid.Column="3"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="4"/>
+                    <Rectangle Grid.Row="3" Grid.Column="4"/>
+                    <Rectangle Grid.Row="2" Grid.Column="4"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="5"/>
+                    <Rectangle Grid.Row="3" Grid.Column="5"/>
+                    <Rectangle Grid.Row="2" Grid.Column="5"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="6"/>
+                    <Rectangle Grid.Row="3" Grid.Column="6"/>
+                    <Rectangle Grid.Row="2" Grid.Column="6"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="7"/>
+                    <Rectangle Grid.Row="3" Grid.Column="7"/>
+                    <Rectangle Grid.Row="2" Grid.Column="7"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="8"/>
+                    <Rectangle Grid.Row="3" Grid.Column="8"/>
+                    <Rectangle Grid.Row="2" Grid.Column="8"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="9"/>
+                    <Rectangle Grid.Row="3" Grid.Column="9"/>
+                    <Rectangle Grid.Row="2" Grid.Column="9"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="10"/>
+                    <Rectangle Grid.Row="3" Grid.Column="10"/>
+                    <Rectangle Grid.Row="2" Grid.Column="10"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="11"/>
+                    <Rectangle Grid.Row="3" Grid.Column="11"/>
+                    <Rectangle Grid.Row="2" Grid.Column="11"/>
+
+                    <Rectangle Grid.Row="4" Grid.Column="12"/>
+                    <Rectangle Grid.Row="3" Grid.Column="12"/>
+                    <Rectangle Grid.Row="2" Grid.Column="12"/>
+                    
+                </Grid>
+
             </Grid>
 
         </Grid>

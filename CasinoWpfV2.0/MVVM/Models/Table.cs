@@ -12,12 +12,12 @@ namespace CasinoWpfV2._0.MVVM.Models
     {
         private Table _table = new Table();
 
-        private Bet? bet;
-
         private WheelModel wheel { get; set; }
 
 
         public PlayerModel player { get; private set; }
+
+        public Bet? bet { get; private set; }
 
 
         public TableModel(PlayerModel player, WheelModel wheel)
@@ -25,7 +25,8 @@ namespace CasinoWpfV2._0.MVVM.Models
             this.player = player;
 
             this.wheel = wheel;
-            this.wheel.CompletedRotate += PayOut;
+
+            this.wheel.Completed += PayOut;
         }
 
         public void MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
@@ -43,7 +44,7 @@ namespace CasinoWpfV2._0.MVVM.Models
         /// </summary>
         public void SpinWheel()
         {
-            int winningCell = _table.Spin();
+			int winningCell = _table.Spin();
 
             wheel.Spin(winningCell);
         }

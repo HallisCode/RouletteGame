@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CasinoWpfV2._0.MVVM.Models;
+using CasinoWpfV2._0.MVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,17 @@ namespace CasinoWpfV2._0.MVVM.Views
 		public Game()
 		{
 			InitializeComponent();
+
+
+			PlayerModel player = new PlayerModel("Andrew", "Atamanov", 5000m);
+
+			WheelModel wheel = new WheelModel(Wheel);
+
+			TableModel table = new TableModel(player, wheel);
+
+			table.MakeBet(RouletteLib.TypeInsideBet.Split, 500m, new int[] { 3, 2 });
+
+			DataContext = new CasinoViewModel(table);
 		}
 	}
 }

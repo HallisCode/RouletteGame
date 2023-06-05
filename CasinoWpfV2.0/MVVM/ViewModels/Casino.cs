@@ -1,6 +1,7 @@
 ﻿using CasinoWpfV2._0.Commands;
 using CasinoWpfV2._0.MVVM.Models;
 using RouletteLib;
+using System.Diagnostics;
 
 namespace CasinoWpfV2._0.MVVM.ViewModels
 {
@@ -68,11 +69,11 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 
 		private bool CheckAvalibilitySpin()
 		{
-			if (_player.balance <= 0 || _table.bet is null)
+			if (_player.balance <= 0 || !_player.CheckMoney(_betAmount) || _table.bet is null ||
+				_table.isSpinning is true)
 			{
 				return false;
 			}
-
 
 			return true;
 		}

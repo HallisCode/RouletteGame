@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CasinoWpfV2._0.MVVM.ViewModels"
         mc:Ignorable="d"
-        xmlns:customCr ="clr-namespace:CasinoWpfV2._0.Controllers"
+        xmlns:local="clr-namespace:CasinoWpfV2._0.MVVM.ViewModels"
+        xmlns:attachPr ="clr-namespace:CasinoWpfV2._0.XamlTools.AttachedProperty"
+        xmlns:customCr ="clr-namespace:CasinoWpfV2._0.XamlTools.Controllers"
         xmlns:roulutteLib ="clr-namespace:RouletteLib;assembly=RouletteLib"
         d:DataContext="{d:DesignInstance Type=local:CasinoViewModel}"
         Title="Casino" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
@@ -85,7 +86,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Label Content="Ставка :" Margin="0px 0px 10px 0px"/>
-                <TextBox Text="{Binding betAmount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
+                <TextBox attachPr:Masking.Mask="^[0-9]+$" Text="{Binding betAmount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
             </StackPanel>
 
         </Grid>

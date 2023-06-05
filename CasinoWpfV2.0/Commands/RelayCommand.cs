@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CasinoWpfV2._0.Commands
 {
 	internal class RelayCommand : ICommand
 	{
-		public event EventHandler? CanExecuteChanged;
+		public event EventHandler? CanExecuteChanged
+		{
+			add { CommandManager.RequerySuggested += value; }
+			remove { CommandManager.RequerySuggested -= value; }
+		}
 
 
 		private Action<object?> execute;

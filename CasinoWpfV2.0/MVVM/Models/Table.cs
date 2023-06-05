@@ -19,6 +19,8 @@ namespace CasinoWpfV2._0.MVVM.Models
 
 		public Bet? bet { get; private set; }
 
+		public bool isSpinning;
+
 
 		public TableModel(PlayerModel player, WheelModel wheel)
 		{
@@ -29,13 +31,25 @@ namespace CasinoWpfV2._0.MVVM.Models
 			this.wheel.Completed += PayOut;
 		}
 
+		private void CheckMoney(decimal amount)
+		{
+			if (!player.CheckMoney(amount))
+			{
+				throw new Exception("Ставка превышает сумму имеющихся денег!");
+			}
+		}
+
 		public void MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
+			CheckMoney(amount);
+
 			bet = _table.MakeBet(typeOutsideBet, amount);
 		}
 
 		public void MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
+			CheckMoney(amount);
+
 			bet = _table.MakeBet(typeInsideBet, amount, numbers);
 		}
 
@@ -44,6 +58,8 @@ namespace CasinoWpfV2._0.MVVM.Models
 		/// </summary>
 		public void SpinWheel()
 		{
+			isSpinning = true;
+
 			int winningCell = _table.Spin();
 
 			wheel.Spin(winningCell);
@@ -69,7 +85,8 @@ namespace CasinoWpfV2._0.MVVM.Models
 			}
 
 			bet = null;
-		}
 
+			isSpinning = false;
+		}
 	}
 }

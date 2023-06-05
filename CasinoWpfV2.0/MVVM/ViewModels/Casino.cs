@@ -1,11 +1,6 @@
 ﻿using CasinoWpfV2._0.Commands;
 using CasinoWpfV2._0.MVVM.Models;
 using RouletteLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CasinoWpfV2._0.MVVM.ViewModels
 {
@@ -35,7 +30,6 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 
 
 		private decimal _betAmount;
-
 		public decimal betAmount
 		{
 			get { return _betAmount; }
@@ -47,6 +41,15 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			}
 		}
 
+
+		public CasinoViewModel(TableModel tableModel)
+		{
+			_table = tableModel;
+
+			_player = _table.player;
+
+			_SpinWheelCommand = new RelayCommand(execute: (obj) => SpinWheel(), obj => CheckAvalibilitySpin());
+		}
 
 		public void MakeBet(TypeOutsideBet typeOutsideBet)
 		{
@@ -61,15 +64,6 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 		public void SpinWheel()
 		{
 			_table.SpinWheel();
-		}
-
-		public CasinoViewModel(TableModel tableModel)
-		{
-			_table = tableModel;
-
-			_player = _table.player;
-
-			_SpinWheelCommand = new RelayCommand(execute: (obj) => SpinWheel());
 		}
 
 		private bool CheckAvalibilitySpin()

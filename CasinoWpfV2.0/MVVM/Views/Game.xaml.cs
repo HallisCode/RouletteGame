@@ -1,18 +1,8 @@
-﻿using CasinoWpfV2._0.MVVM.Models;
+﻿using CasinoWpfV2._0.Controllers;
+using CasinoWpfV2._0.MVVM.Models;
 using CasinoWpfV2._0.MVVM.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RouletteLib;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace CasinoWpfV2._0.MVVM.Views
 {
@@ -26,15 +16,35 @@ namespace CasinoWpfV2._0.MVVM.Views
 			InitializeComponent();
 
 
-			PlayerModel player = new PlayerModel("Andrew", "Atamanov", 5000m);
+			PlayerModel player = new PlayerModel("Andrew", "Atamanov", 500000m);
 
 			WheelModel wheel = new WheelModel(Wheel);
 
 			TableModel table = new TableModel(player, wheel);
 
-			table.MakeBet(RouletteLib.TypeInsideBet.Split, 500m, new int[] { 3, 2 });
-
 			DataContext = new CasinoViewModel(table);
+		}
+
+		private void CellBet_click(object sender, RoutedEventArgs e)
+		{
+			CellBet cellBet = (CellBet)e.Source;
+
+			CasinoViewModel casinoViewModel = (CasinoViewModel)DataContext;
+
+			switch (cellBet.type)
+			{
+				case (TypeOutsideBet):
+
+					casinoViewModel.MakeBet((TypeOutsideBet)cellBet.type);
+
+					break;
+
+				case (TypeInsideBet):
+
+					casinoViewModel.MakeBet((TypeInsideBet)cellBet.type, cellBet.GetNumbersArray());
+
+					break;
+			}
 		}
 	}
 }

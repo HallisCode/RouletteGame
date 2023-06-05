@@ -8,9 +8,8 @@
         xmlns:cellSys="clr-namespace:CasinoWpf.Utils"
         xmlns:roulutteLib="clr-namespace:RouletteLib;assembly=RouletteLib"
         mc:Ignorable="d"
-        Title="Casino:Robux" Height="500" Width="1000" 
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        Foreground="White"
+        Title="Casino:Robux" Height="500" Width="1000" WindowStartupLocation="CenterScreen" 
+        Foreground="White" ResizeMode="NoResize"
         >
 
     <Window.Background>

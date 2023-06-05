@@ -13,7 +13,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Resources\table.xaml"/>
+		<Resource Include="Resources\table.xaml" />
 		<Resource Include="Resources\wheel.xaml"></Resource>
 		<Resource Include="Resources\chip.xaml"></Resource>
 		<Resource Include="Resources\launchButton.xaml"></Resource>

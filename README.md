@@ -22,7 +22,7 @@ using RoulutteLib
 Table table = new Table(10000m, 100000m);
 
 // When you create a bet, it is accepted by the gambling table by default
-Rate rate = table.Bet(TypeExternalRate.Red, 1000);
+Rate rate = table.MakeBet(TypeExternalRate.Red, 1000);
 
 // Spinning roulette on the gambling table
 int winningCell = table.Spin();

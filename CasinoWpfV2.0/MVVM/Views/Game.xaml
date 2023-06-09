@@ -21,11 +21,6 @@
                 <ResourceDictionary Source="/Design/Icons/Wheel.xaml"/>
                 <ResourceDictionary Source="/Design/Icons/Arrow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <Style TargetType="customCr:CellBet">
-                <Setter Property="Background" Value="Yellow"/>
-                <Setter Property="Opacity" Value="0.4"/>
-            </Style>
-
         </ResourceDictionary>
     </Window.Resources>
 

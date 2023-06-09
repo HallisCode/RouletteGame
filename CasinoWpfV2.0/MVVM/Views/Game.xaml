@@ -21,6 +21,11 @@
                 <ResourceDictionary Source="/Design/Icons/Wheel.xaml"/>
                 <ResourceDictionary Source="/Design/Icons/Arrow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="customCr:CellBet">
+                <Setter Property="Background" Value="Yellow"/>
+                <Setter Property="Opacity" Value="0.4"/>
+            </Style>
+
         </ResourceDictionary>
     </Window.Resources>
 
@@ -120,11 +125,11 @@
             </Grid>
 
             <!--Поле для ставок-->
-            <Grid Grid.Column="1"  VerticalAlignment="Center">
+            <Grid Grid.Column="1"  VerticalAlignment="Center" Button.Click="cellbet_click">
 
                 <Image Source="{StaticResource table}"/>
 
-                <Grid Style="{StaticResource Field}" ButtonBase.Click="cellbet_click">
+                <Grid Style="{StaticResource Field}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="38*"/>
                         <RowDefinition Height="44*"/>
@@ -168,7 +173,7 @@
                     <customCr:CellBet type="{x:Static roulutteLib:TypeOutsideBet.Column1}" Grid.Row="3" Grid.Column="13"/>
                     <customCr:CellBet type="{x:Static roulutteLib:TypeOutsideBet.Column2}" Grid.Row="2" Grid.Column="13"/>
                     <customCr:CellBet type="{x:Static roulutteLib:TypeOutsideBet.Column3}" Grid.Row="1" Grid.Column="13"/>
-                    
+
                     <!--Ставки на число-->
 
                     <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.StraightUp}" numbers="0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3"/>
@@ -223,8 +228,188 @@
 
                 </Grid>
 
-                <Canvas x:Name="FieldChip">
+                <Grid Margin="0,0,0,1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="35*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="36*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="71*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="34*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="34*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="35*"/>
+
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="37*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="39*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!--Внутренние ставки-->
+
+                    <!--Split вертикальные-->
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="0,3" Grid.Row="2" Grid.Column="1"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="3,6" Grid.Row="2" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="6,9" Grid.Row="2" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="9,12" Grid.Row="2" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="12,15" Grid.Row="2" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="15,18" Grid.Row="2" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="18,21" Grid.Row="2" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="21,24" Grid.Row="2" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="24,27" Grid.Row="2" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="27,30" Grid.Row="2" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="30,33" Grid.Row="2" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="33,36" Grid.Row="2" Grid.Column="23"/>
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="0,2" Grid.Row="4" Grid.Column="1"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="2,5" Grid.Row="4" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="5,8" Grid.Row="4" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="8,11" Grid.Row="4" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="11,14" Grid.Row="4" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="14,17" Grid.Row="4" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="17,20" Grid.Row="4" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="20,23" Grid.Row="4" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="23,26" Grid.Row="4" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="26,29" Grid.Row="4" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="29,32" Grid.Row="4" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="32,35" Grid.Row="4" Grid.Column="23"/>
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="0,1" Grid.Row="6" Grid.Column="1"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="1,4" Grid.Row="6" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="4,7" Grid.Row="6" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="7,10" Grid.Row="6" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="10,13" Grid.Row="6" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="13,16" Grid.Row="6" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="16,19" Grid.Row="6" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="19,22" Grid.Row="6" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="22,25" Grid.Row="6" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="25,28" Grid.Row="6" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="28,31" Grid.Row="6" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="31,34" Grid.Row="6" Grid.Column="23"/>
                     
+                    <!--Split горизонтальные-->
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="3,2" Grid.Row="3" Grid.Column="2"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="6,5" Grid.Row="3" Grid.Column="4"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="9,8" Grid.Row="3" Grid.Column="6"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="12,11" Grid.Row="3" Grid.Column="8"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="15,14" Grid.Row="3" Grid.Column="10"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="18,17" Grid.Row="3" Grid.Column="12"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="21,20" Grid.Row="3" Grid.Column="14"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="24,23" Grid.Row="3" Grid.Column="16"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="27,26" Grid.Row="3" Grid.Column="18"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="30,29" Grid.Row="3" Grid.Column="20"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="33,32" Grid.Row="3" Grid.Column="22"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="36,35" Grid.Row="3" Grid.Column="24"/>
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="2,1" Grid.Row="5" Grid.Column="2"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="5,4" Grid.Row="5" Grid.Column="4"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="8,7" Grid.Row="5" Grid.Column="6"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="11,10" Grid.Row="5" Grid.Column="8"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="14,13" Grid.Row="5" Grid.Column="10"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="17,16" Grid.Row="5" Grid.Column="12"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="20,19" Grid.Row="5" Grid.Column="14"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="23,22" Grid.Row="5" Grid.Column="16"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="26,25" Grid.Row="5" Grid.Column="18"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="29,28" Grid.Row="5" Grid.Column="20"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="32,31" Grid.Row="5" Grid.Column="22"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="35,34" Grid.Row="5" Grid.Column="24"/>
+                    
+                    <!--Street-->
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Split}" numbers="3,2,1" Grid.Row="7" Grid.Column="2"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="6,5,4" Grid.Row="7" Grid.Column="4"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="9,8,7" Grid.Row="7" Grid.Column="6"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="12,11,10" Grid.Row="7" Grid.Column="8"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="15,14,13" Grid.Row="7" Grid.Column="10"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="18,17,16" Grid.Row="7" Grid.Column="12"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="21,20,19" Grid.Row="7" Grid.Column="14"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="24,23,22" Grid.Row="7" Grid.Column="16"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="27,26,25" Grid.Row="7" Grid.Column="18"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="30,29,28" Grid.Row="7" Grid.Column="20"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="33,32,31" Grid.Row="7" Grid.Column="22"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="36,35,34" Grid.Row="7" Grid.Column="24"/>
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="0,3,2" Grid.Row="3" Grid.Column="1"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Street}" numbers="0,2,1" Grid.Row="5" Grid.Column="1"/>
+                    
+                    <!--First Four-->
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.FirstFour}" numbers="0,1,2,3" Grid.Row="7" Grid.Column="1"/>
+                    
+                    <!--Corner-->
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="3,6,2,5" Grid.Row="3" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="6,9,5,8" Grid.Row="3" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="9,12,8,11" Grid.Row="3" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="12,15,11,14" Grid.Row="3" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="15,18,14,17" Grid.Row="3" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="18,21,17,20" Grid.Row="3" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="21,24,20,23" Grid.Row="3" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="24,27,23,26" Grid.Row="3" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="27,30,26,29" Grid.Row="3" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="30,33,29,32" Grid.Row="3" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="33,36,32,35" Grid.Row="3" Grid.Column="23"/>
+
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="2,5,1,4" Grid.Row="5" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="5,8,4,7" Grid.Row="5" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="8,11,7,10" Grid.Row="5" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="11,14,10,13" Grid.Row="5" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="14,17,13,16" Grid.Row="5" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="17,20,16,19" Grid.Row="5" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="20,23,19,22" Grid.Row="5" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="23,26,22,25" Grid.Row="5" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="26,29,25,28" Grid.Row="5" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="29,32,28,31" Grid.Row="5" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.Corner}" numbers="32,35,31,34" Grid.Row="5" Grid.Column="23"/>
+                    
+                    <!--SixLine-->
+                    
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="1,2,3,4,5,6" Grid.Row="7" Grid.Column="3"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="4,5,6,7,8,9" Grid.Row="7" Grid.Column="5"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="7,8,9,10,11,12" Grid.Row="7" Grid.Column="7"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="10,11,12,13,14,15" Grid.Row="7" Grid.Column="9"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="13,14,15,16,17,18" Grid.Row="7" Grid.Column="11"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="16,17,18,19,20,21" Grid.Row="7" Grid.Column="13"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="19,20,21,22,23,24" Grid.Row="7" Grid.Column="15"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="22,23,24,25,26,27" Grid.Row="7" Grid.Column="17"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="25,26,27,28,29,30" Grid.Row="7" Grid.Column="19"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="28,29,30,31,32,33" Grid.Row="7" Grid.Column="21"/>
+                    <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.SixLine}" numbers="31,32,33,34,35,36" Grid.Row="7" Grid.Column="23"/>
+
+                </Grid>
+
+                <Canvas x:Name="FieldChip">
+
                 </Canvas>
 
             </Grid>

@@ -1,17 +1,13 @@
 ﻿using CasinoWpfV2._0.Commands;
 using CasinoWpfV2._0.MVVM.Models;
-using CasinoWpfV2._0.XamlTools.Controllers;
 using RouletteLib;
-using System;
-using System.Windows;
+using System.Diagnostics;
 
 namespace CasinoWpfV2._0.MVVM.ViewModels
 {
 	internal class CasinoViewModel : ViewModel
 	{
 		private TableModel _table;
-
-		public ChipModel? chip { get; set; }
 
 
 		private RelayCommand _SpinWheelCommand;
@@ -54,77 +50,32 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			_player = _table.player;
 
 			_SpinWheelCommand = new RelayCommand(execute: (obj) => SpinWheel(), obj => CheckAvalibilitySpin());
-
-			_table.CompletedSpin += (obj, sender) => ShowSpinTotal();
 		}
 
-		public bool MakeBet(CellBet cellBet)
+		public void MakeBet(TypeOutsideBet typeOutsideBet)
 		{
-			if (_betAmount <= 0 || !_player.CheckHasMoney(_betAmount)) return false;
-
-			switch (cellBet.type)
-			{
-				case (TypeOutsideBet):
-
-					_table.MakeBet((TypeOutsideBet)cellBet.type, _betAmount);
-
-					break;
-
-				case (TypeInsideBet):
-
-					_table.MakeBet((TypeInsideBet)cellBet.type, _betAmount, cellBet.GetNumbersArray());
-
-					break;
-			}
-
-			return true;
+			_table.MakeBet(typeOutsideBet, _betAmount);
 		}
 
-		private void SpinWheel()
+		public void MakeBet(TypeInsideBet typeInsideBet, int[] numbers)
 		{
-			if (_table.bet is null) _table.MakeLastBet(_betAmount);
+			_table.MakeBet(typeInsideBet, _betAmount, numbers);
+		}
 
+		public void SpinWheel()
+		{
 			_table.SpinWheel();
-
-			Application.Current.MainWindow.IsEnabled = false;
 		}
 
 		private bool CheckAvalibilitySpin()
 		{
-			if (_table.bet is null & _table.lastBetPlayed is null || !_player.CheckHasMoney(_betAmount))
+			if (_player.balance <= 0 || !_player.CheckMoney(_betAmount) || _table.bet is null ||
+				_table.isSpinning is true)
 			{
 				return false;
 			}
 
 			return true;
-		}
-
-		private void ShowSpinTotal()
-		{
-			if (_table.lastBetPlayed is null) throw new Exception("Отсутствует последняя сыгранная ставка!");
-
-			string message = "";
-
-			switch (_table.lastBetPlayed.status)
-			{
-
-
-				case (BetStatus.Winning):
-
-					message = $"Поздравляю, Вы выйгриали!\nСумма вашего выигрыша : {_table.lastBetPlayed.winningAmount:N3}$ + {_table.lastBetPlayed.amount:N3}$";
-
-					break;
-
-				case (BetStatus.Loss):
-
-					message = $"К сожалению, Вы проиграли!\nСумма вашего проигрыша: {_table.lastBetPlayed.amount:N3}$";
-
-					break;
-			}
-
-			MessageBox.Show(message, "Итог", MessageBoxButton.OK, MessageBoxImage.Information);
-
-			Application.Current.MainWindow.IsEnabled = true;
 		}
 	}
 }

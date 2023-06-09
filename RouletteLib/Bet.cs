@@ -3,7 +3,7 @@
 
 namespace RouletteLib
 {
-	public enum RateStatus
+	public enum BetStatus
 	{
 		Waiting,
 		Winning,
@@ -37,7 +37,7 @@ namespace RouletteLib
 	{
 		public decimal amount { get; protected set; }
 
-		public RateStatus status { get; internal set; } = RateStatus.Waiting;
+		public BetStatus status { get; internal set; } = BetStatus.Waiting;
 
 		public decimal winningAmount { get; internal set; }
 

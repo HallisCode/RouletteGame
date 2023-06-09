@@ -19,14 +19,16 @@ namespace RouletteLib
 		public decimal maxRate { get; private set; }
 
 
-		public Table(decimal minRate = decimal.MinValue, decimal maxRate = decimal.MaxValue)
+		public Table(decimal minRate = 1m, decimal maxRate = decimal.MaxValue)
 		{
+			if (minRate <= 0 || maxRate <= 0) throw new Exception("Ставки не могут быть отрицательными!");
+
 			this.minRate = minRate;
 
 			this.maxRate = maxRate;
 		}
 
-		private void CheckAmountRate(decimal amount)
+		private void CheckAmountBet(decimal amount)
 		{
 			if (amount < minRate || amount > maxRate)
 				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
@@ -34,7 +36,7 @@ namespace RouletteLib
 
 		public OutsideBet MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
-			CheckAmountRate(amount);
+			CheckAmountBet(amount);
 
 			bet = new OutsideBet(typeOutsideBet: typeOutsideBet, amount: amount);
 
@@ -43,7 +45,7 @@ namespace RouletteLib
 
 		public InsideBet MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
-			CheckAmountRate(amount);
+			CheckAmountBet(amount);
 
 			bet = new InsideBet(typeInsideBet: typeInsideBet, amount: amount, numbers: numbers);
 
@@ -82,13 +84,13 @@ namespace RouletteLib
 			{
 				winningMoney = bet.amount * multiplier;
 
-				bet.status = RateStatus.Winning;
+				bet.status = BetStatus.Winning;
 
 				bet.winningAmount = winningMoney;
 			}
 			else
 			{
-				bet.status = RateStatus.Loss;
+				bet.status = BetStatus.Loss;
 
 				bet.winningAmount = winningMoney;
 			}

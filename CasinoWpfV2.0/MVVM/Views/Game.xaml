@@ -86,7 +86,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Label Content="Ставка :" Margin="0px 0px 10px 0px"/>
-                <TextBox x:Name="betAmount" attachPr:Masking.Mask="^[0-9]+$" Text="{Binding betAmount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
+                <TextBox attachPr:Masking.Mask="^[0-9]+$" Text="{Binding betAmount, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextAlignment="Center" Width="256"/>
             </StackPanel>
 
         </Grid>
@@ -124,7 +124,7 @@
 
                 <Image Source="{StaticResource table}"/>
 
-                <Grid Style="{StaticResource Field}" ButtonBase.Click="cellbet_click">
+                <Grid Style="{StaticResource Field}" ButtonBase.Click="CellBet_click">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="38*"/>
                         <RowDefinition Height="44*"/>
@@ -222,10 +222,6 @@
                     <customCr:CellBet type="{x:Static roulutteLib:TypeInsideBet.StraightUp}" numbers="36" Grid.Row="1" Grid.Column="12"/>
 
                 </Grid>
-
-                <Canvas x:Name="FieldChip">
-                    
-                </Canvas>
 
             </Grid>
 

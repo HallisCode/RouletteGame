@@ -11,6 +11,8 @@ namespace CasinoWpfV2._0.MVVM.Views
 	/// </summary>
 	public partial class Game : Window
 	{
+		private CasinoViewModel casinoViewModel;
+
 		public Game()
 		{
 			InitializeComponent();
@@ -23,22 +25,23 @@ namespace CasinoWpfV2._0.MVVM.Views
 
 			TableModel table = new TableModel(player, wheel);
 
-			DataContext = new CasinoViewModel(table);
+			casinoViewModel = new CasinoViewModel(table);
+
+			DataContext = casinoViewModel;
 		}
 
 		private void cellbet_click(object sender, RoutedEventArgs e)
 		{
-
 			CellBet cellBet = (CellBet)e.Source;
 
-			CasinoViewModel casinoViewModel = (CasinoViewModel)DataContext;
 
-			if (!casinoViewModel.MakeBet(cellBet))
-			{
-				return;
-			}
+			casinoViewModel.AcceptCellBet(cellBet);
 
+			MoveChip(cellBet);
+		}
 
+		private void MoveChip(CellBet cellBet)
+		{
 			if (casinoViewModel.chip is null)
 			{
 				Point spawnPoint = betAmount.TranslatePoint(new Point(0, 0), FieldChip);

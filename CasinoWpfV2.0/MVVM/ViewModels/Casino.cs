@@ -46,6 +46,8 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			}
 		}
 
+		private CellBet? _cellBet;
+
 
 		public CasinoViewModel(TableModel tableModel)
 		{
@@ -58,30 +60,35 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			_table.CompletedSpin += (obj, sender) => ShowSpinTotal();
 		}
 
-		public bool MakeBet(CellBet cellBet)
+		public void AcceptCellBet(CellBet cellBet)
 		{
-			if (_betAmount <= 0 || !_player.CheckHasMoney(_betAmount)) return false;
+			_cellBet = cellBet;
+		}
 
-			switch (cellBet.type)
+		private void MakeBet()
+		{
+			if (_cellBet is null) return;
+
+			switch (_cellBet.type)
 			{
 				case (TypeOutsideBet):
 
-					_table.MakeBet((TypeOutsideBet)cellBet.type, _betAmount);
+					_table.MakeBet((TypeOutsideBet)_cellBet.type, _betAmount);
 
 					break;
 
 				case (TypeInsideBet):
 
-					_table.MakeBet((TypeInsideBet)cellBet.type, _betAmount, cellBet.GetNumbersArray());
+					_table.MakeBet((TypeInsideBet)_cellBet.type, _betAmount, _cellBet.GetNumbersArray());
 
 					break;
 			}
-
-			return true;
 		}
 
 		private void SpinWheel()
 		{
+			MakeBet();
+
 			if (_table.bet is null) _table.MakeLastBet(_betAmount);
 
 			_table.SpinWheel();
@@ -89,9 +96,16 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			Application.Current.MainWindow.IsEnabled = false;
 		}
 
+
 		private bool CheckAvalibilitySpin()
 		{
-			if (_table.bet is null & _table.lastBetPlayed is null || !_player.CheckHasMoney(_betAmount))
+			if (_cellBet is null) return false;
+
+			if (_betAmount <= 0) return false;
+
+			if (!_player.CheckHasMoney(_betAmount)) return false;
+
+			if (_table.bet is null && !_player.CheckHasMoney(_table.lastBetPlayed?.amount ?? 0))
 			{
 				return false;
 			}

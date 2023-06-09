@@ -73,6 +73,8 @@ namespace CasinoWpfV2._0.MVVM.Models
 
 			amount = amount <= 0 ? lastBetPlayed.amount : amount;
 
+			CheckAmountBet(amount);
+
 			switch (lastBetPlayed)
 			{
 				case (OutsideBet):

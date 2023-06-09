@@ -19,10 +19,8 @@ namespace RouletteLib
 		public decimal maxRate { get; private set; }
 
 
-		public Table(decimal minRate = 1m, decimal maxRate = decimal.MaxValue)
+		public Table(decimal minRate = decimal.MinValue, decimal maxRate = decimal.MaxValue)
 		{
-			if (minRate <= 0 || maxRate <= 0) throw new Exception("Ставки не могут быть отрицательными!");
-
 			this.minRate = minRate;
 
 			this.maxRate = maxRate;

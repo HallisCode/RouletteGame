@@ -16,30 +16,31 @@ namespace CasinoWpfV2._0.MVVM.Models
 	{
 		private Image _wheel;
 
-		private RotateTransform rotateTransform;
+		private RotateTransform _rotateTransform;
 
-		private DoubleAnimation rotateAnimation;
-
-		private const int secondsAnimation = 8;
-
-		private const int additionalSpins = 5;
+		private DoubleAnimation _rotateAnimation;
 
 
-		private int lastIndexCell;
+		private const double _secondsAnimation = 8d;
 
-		private readonly int[] cells = Cells.all.Reverse().ToArray();
+		private const int _additionalSpins = 5;
 
-		private bool isFirstSpin = true;
 
-		public event EventHandler Completed
+		private int _lastIndexCell;
+
+		private readonly int[] _cells = Cells.all.Reverse().ToArray();
+
+		private bool _isFirstSpin = true;
+
+		public event EventHandler CompletedSpin
 		{
 			add
 			{
-				rotateAnimation.Completed += value;
+				_rotateAnimation.Completed += value;
 			}
 			remove
 			{
-				rotateAnimation.Completed -= value;
+				_rotateAnimation.Completed -= value;
 			}
 		}
 
@@ -53,17 +54,16 @@ namespace CasinoWpfV2._0.MVVM.Models
 				EasingMode = EasingMode.EaseInOut
 			};
 
-			rotateAnimation = new DoubleAnimation()
+			_rotateAnimation = new DoubleAnimation()
 			{
-				Duration = TimeSpan.FromSeconds(secondsAnimation),
+				Duration = TimeSpan.FromSeconds(_secondsAnimation),
 				EasingFunction = fluidAnimation
 			};
 
+			_rotateTransform = new RotateTransform();
 
-			_wheel.RenderTransform = new RotateTransform();
+			_wheel.RenderTransform = _rotateTransform;
 			_wheel.RenderTransformOrigin = new Point(0.5, 0.5);
-
-			rotateTransform = (RotateTransform)_wheel.RenderTransform;
 		}
 
 		/// <summary>
@@ -72,38 +72,38 @@ namespace CasinoWpfV2._0.MVVM.Models
 		/// <param name="winningCell"></param>
 		public void Spin(int winningCell)
 		{
-			int currentIndexCell = Array.IndexOf(cells, winningCell);
+			int currentIndexCell = Array.IndexOf(_cells, winningCell);
 
 			int rotateOn = 0;
 
-			if (currentIndexCell - lastIndexCell > 0)
+			if (currentIndexCell - _lastIndexCell > 0)
 			{
-				int[] betweenElements = cells.Skip(lastIndexCell).Take(currentIndexCell - lastIndexCell).ToArray();
+				int[] betweenElements = _cells.Skip(_lastIndexCell).Take(currentIndexCell - _lastIndexCell).ToArray();
 
 				rotateOn = betweenElements.Count();
 			}
-			else if (currentIndexCell - lastIndexCell < 0)
+			else if (currentIndexCell - _lastIndexCell < 0)
 			{
-				rotateOn += cells.Length - lastIndexCell;
+				rotateOn += _cells.Length - _lastIndexCell;
 
-				int[] betweenElements = cells.Take(currentIndexCell).ToArray();
+				int[] betweenElements = _cells.Take(currentIndexCell).ToArray();
 
 				rotateOn += betweenElements.Count();
 			}
 
-			if (isFirstSpin)
+			if (_isFirstSpin)
 			{
-				isFirstSpin = false;
+				_isFirstSpin = false;
 
 				rotateOn += 1;
 			}
 
-			rotateAnimation.From = rotateTransform.Angle;
-			rotateAnimation.To = rotateTransform.Angle + rotateOn * (360d / cells.Length) + 360d * additionalSpins;
+			_rotateAnimation.From = _rotateTransform.Angle;
+			_rotateAnimation.To = _rotateTransform.Angle + rotateOn * (360d / _cells.Length) + 360d * _additionalSpins;
 
-			rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+			_rotateTransform.BeginAnimation(RotateTransform.AngleProperty, _rotateAnimation);
 
-			lastIndexCell = currentIndexCell;
+			_lastIndexCell = currentIndexCell;
 		}
 	}
 }

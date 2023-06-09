@@ -1,4 +1,6 @@
-﻿using RouletteLib;
+﻿using CasinoWpfV2._0.MVVM.ViewModels;
+using CasinoWpfV2._0.XamlTools.Controllers;
+using RouletteLib;
 using System;
 
 
@@ -19,7 +21,14 @@ namespace CasinoWpfV2._0.MVVM.Models
 
 		public Bet? bet { get; private set; }
 
-		public bool isSpinning;
+		public Bet? lastBetPlayed { get; private set; }
+
+
+		public event EventHandler CompletedSpin
+		{
+			add { wheel.CompletedSpin += value; }
+			remove { wheel.CompletedSpin += value; }
+		}
 
 
 		public TableModel(PlayerModel player, WheelModel wheel)
@@ -28,29 +37,60 @@ namespace CasinoWpfV2._0.MVVM.Models
 
 			this.wheel = wheel;
 
-			this.wheel.Completed += PayOut;
+			this.wheel.CompletedSpin += PayOut;
 		}
 
-		private void CheckMoney(decimal amount)
+		private void CheckAmountBet(decimal amount)
 		{
-			if (!player.CheckMoney(amount))
+			if (!player.CheckHasMoney(amount))
 			{
 				throw new Exception("Ставка превышает сумму имеющихся денег!");
+			}
+
+			if (amount <= 0)
+			{
+				throw new Exception("Ставка неккоректная!");
 			}
 		}
 
 		public void MakeBet(TypeOutsideBet typeOutsideBet, decimal amount)
 		{
-			CheckMoney(amount);
+			CheckAmountBet(amount);
 
 			bet = _table.MakeBet(typeOutsideBet, amount);
 		}
 
 		public void MakeBet(TypeInsideBet typeInsideBet, decimal amount, int[] numbers)
 		{
-			CheckMoney(amount);
+			CheckAmountBet(amount);
 
 			bet = _table.MakeBet(typeInsideBet, amount, numbers);
+		}
+
+		public void MakeLastBet(decimal amount = 0)
+		{
+			if (lastBetPlayed is null) throw new Exception("Отсутствует предыдущая ставка!");
+
+			amount = amount <= 0 ? lastBetPlayed.amount : amount;
+
+			switch (lastBetPlayed)
+			{
+				case (OutsideBet):
+
+					OutsideBet outsideBet = (OutsideBet)lastBetPlayed;
+
+					bet = _table.MakeBet(outsideBet.type, amount);
+
+					break;
+
+				case (InsideBet):
+
+					InsideBet insideBet = (InsideBet)lastBetPlayed;
+
+					bet = _table.MakeBet(insideBet.type, amount, insideBet.numbers);
+
+					break;
+			}
 		}
 
 		/// <summary>
@@ -58,8 +98,6 @@ namespace CasinoWpfV2._0.MVVM.Models
 		/// </summary>
 		public void SpinWheel()
 		{
-			isSpinning = true;
-
 			int winningCell = _table.Spin();
 
 			wheel.Spin(winningCell);
@@ -75,18 +113,18 @@ namespace CasinoWpfV2._0.MVVM.Models
 		{
 			if (bet is null) throw new Exception("Невозможно произвести выплату при отсутствии ставки!");
 
-			if (bet.status is RateStatus.Winning)
+			if (bet.status is BetStatus.Winning)
 			{
 				player.AddMoney(bet.winningAmount + bet.amount);
 			}
-			else if (bet.status is RateStatus.Loss)
+			else if (bet.status is BetStatus.Loss)
 			{
 				player.TakeMoney(bet.amount);
 			}
 
-			bet = null;
+			lastBetPlayed = bet;
 
-			isSpinning = false;
+			bet = null;
 		}
 	}
 }

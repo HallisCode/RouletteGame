@@ -50,7 +50,7 @@ namespace CasinoWpfV2._0.MVVM.Models
 			balance -= money;
 		}
 
-		public bool CheckMoney(decimal money)
+		public bool CheckHasMoney(decimal money)
 		{
 			if (_balance < money) return false;
 

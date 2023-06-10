@@ -13,7 +13,7 @@ Useful links :
 2. [RouletteLib : MVP Exampl](#roulettelib-mvp-exampl)
 3. [Requirements](#Requirements)
 
-## <a>Contains</a> 
+## <a name ="RouletteLibMVPExample">Contains</a>
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
@@ -36,5 +36,5 @@ int winningCell = table.Spin();
 Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
-## <a>Requirements</a>
+## <a name ="Requirements">Requirements</a>
 - [*.NET 7.0*](https://dotnet.microsoft.com/en-us/download/dotnet/7.0#:~:text=x86-,.NET%20Desktop%20Runtime%207.0.5,-The%20.NET%20Desktop)

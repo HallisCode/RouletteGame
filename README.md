@@ -9,15 +9,15 @@ Useful links :
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
 ## Navigation
-1. <a name="Contains">Contains</a> 
-2. <a name="RouletteLibMVPExampl">RouletteLib : MVP Exampl</a> 
-3. <a name="Requirements">Requirements</a> 
+1. [Contains](Contains)
+2. [RouletteLib : MVP Exampl](RouletteLibMVPExampl)
+3. [Requirements](Requirements)
 
 ## <a name="Contains">Contains</a> 
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
-## RouletteLib : MVP Example (#RouletteLib : MVP Example)
+## <a name="RouletteLibMVPExampl">RouletteLib : MVP Exampl</a> 
 
 ```
 // Connecting the library
@@ -36,5 +36,5 @@ int winningCell = table.Spin();
 Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
-## Requirements (#Requirements)
+## <a name="Requirements">Requirements</a>
 - [*.NET 7.0*](https://dotnet.microsoft.com/en-us/download/dotnet/7.0#:~:text=x86-,.NET%20Desktop%20Runtime%207.0.5,-The%20.NET%20Desktop)

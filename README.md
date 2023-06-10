@@ -8,6 +8,11 @@ Useful links :
 2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
+## Navigation
+1. <a name="Contains"></a> 
+2. <a name="RouletteLib : MVP Exampl"></a> 
+3. <a name="## Requirements"></a> 
+
 ## Contains
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.

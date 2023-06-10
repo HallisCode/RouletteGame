@@ -10,7 +10,7 @@ Useful links :
 
 ## Navigation
 1. [Contains](#Contains)
-2. [RouletteLib : MVP Exampl](#RouletteLibMVPExample)
+2. [RouletteLib : MVP Exampl](#roulettelib-mvp-exampl)
 3. [Requirements](#Requirements)
 
 ## <a>Contains</a> 

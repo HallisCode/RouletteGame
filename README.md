@@ -17,7 +17,7 @@ Useful links :
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
-## <a name ="RouletteLibMVPExample"></a>RouletteLib: MVP Exampl
+## <a name ="RouletteLibMVPExample">RouletteLib: MVP Exampl</a>
 
 ```
 // Connecting the library

@@ -9,9 +9,9 @@ Useful links :
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
 ## Navigation
-1. [Contains](Contains)
-2. [RouletteLib : MVP Exampl](RouletteLibMVPExampl)
-3. [Requirements](Requirements)
+1. [Contains](#Contains)
+2. [RouletteLib : MVP Exampl](#RouletteLibMVPExampl)
+3. [Requirements](#Requirements)
 
 ## <a name="Contains">Contains</a> 
 1. RouletteLib - the roulette library itself.

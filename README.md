@@ -9,7 +9,7 @@ Useful links :
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
 ## Navigation
-1. [Contains](#Contains1)
+1. [Contains](#Contains)
 2. [RouletteLib : MVP Exampl](#RouletteLib : MVP Exampl)
 3. [Requirements](#Requirements)
 

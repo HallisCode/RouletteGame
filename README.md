@@ -10,14 +10,14 @@ Useful links :
 
 ## Navigation
 1. [Contains](#Contains)
-2. [RouletteLib : MVP Exampl](#RouletteLib: MVP Exampl)
+2. [RouletteLib : MVP Exampl](#RouletteLibMVPExample)
 3. [Requirements](#Requirements)
 
 ## <a>Contains</a> 
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
-## <a>RouletteLib: MVP Exampl</a> 
+## <a name ="RouletteLibMVPExample"></a>RouletteLib: MVP Exampl
 
 ```
 // Connecting the library

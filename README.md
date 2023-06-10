@@ -10,14 +10,14 @@ Useful links :
 
 ## Navigation
 1. [Contains](#Contains)
-2. [RouletteLib : MVP Exampl](#RouletteLib : MVP Exampl)
+2. [RouletteLib : MVP Exampl](#RouletteLib: MVP Exampl)
 3. [Requirements](#Requirements)
 
 ## <a>Contains</a> 
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
-## <a name="RouletteLibMVPExampl">RouletteLib : MVP Exampl</a> 
+## <a>RouletteLib: MVP Exampl</a> 
 
 ```
 // Connecting the library
@@ -36,5 +36,5 @@ int winningCell = table.Spin();
 Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
-## <a name="Requirements">Requirements</a>
+## <a>Requirements</a>
 - [*.NET 7.0*](https://dotnet.microsoft.com/en-us/download/dotnet/7.0#:~:text=x86-,.NET%20Desktop%20Runtime%207.0.5,-The%20.NET%20Desktop)

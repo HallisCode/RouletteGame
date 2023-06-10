@@ -32,4 +32,4 @@ Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
 ## Requirements
-- *.NET 7.0*
+- [*.NET 7.0*](https://dotnet.microsoft.com/en-us/download/dotnet/7.0#:~:text=x86-,.NET%20Desktop%20Runtime%207.0.5,-The%20.NET%20Desktop)

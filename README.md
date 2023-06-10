@@ -9,11 +9,11 @@ Useful links :
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
 ## Navigation
-1. [Contains](#Contains)
+1. [Contains](#Contains1)
 2. [RouletteLib : MVP Exampl](#RouletteLib : MVP Exampl)
 3. [Requirements](#Requirements)
 
-## <a name="Contains">Contains</a> 
+## <a name="Contains1">Contains</a> 
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 

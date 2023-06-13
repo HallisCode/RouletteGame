@@ -8,11 +8,16 @@ Useful links :
 2. Wikipedia : https://en.wikipedia.org/wiki/Roulette.
 3. Randomness : https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
 
-## Contains
+## Navigation
+1. [Contains](#Contains)
+2. [RouletteLib : MVP Exampl](#roulettelib-mvp-exampl)
+3. [Requirements](#Requirements)
+
+## <a name ="RouletteLibMVPExample">Contains</a>
 1. RouletteLib - the roulette library itself.
 2. Casino - graphic implementation of roulette on wpf.
 
-## RouletteLib : MVP Example
+## <a name ="RouletteLibMVPExample">RouletteLib: MVP Exampl</a>
 
 ```
 // Connecting the library
@@ -31,5 +36,5 @@ int winningCell = table.Spin();
 Console.WriteLine(rate.status + " " + rate.winningAmount);
 ```
 
-## Requirements
-- *.NET 7.0*
+## <a name ="Requirements">Requirements</a>
+- [*.NET 7.0*](https://dotnet.microsoft.com/en-us/download/dotnet/7.0#:~:text=x86-,.NET%20Desktop%20Runtime%207.0.5,-The%20.NET%20Desktop)

@@ -11,6 +11,11 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 	{
 		private TableModel _table;
 
+		private CellBet? _cellBet;
+
+
+		public PlayerModel player { get; private set; }
+
 		public ChipModel? chip { get; set; }
 
 
@@ -19,20 +24,6 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 		{
 			get { return _SpinWheelCommand; }
 		}
-
-
-		private PlayerModel _player;
-		public PlayerModel player
-		{
-			get { return _player; }
-			set
-			{
-				_player = value;
-
-				Notify();
-			}
-		}
-
 
 		private decimal _betAmount;
 		public decimal betAmount
@@ -46,14 +37,12 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 			}
 		}
 
-		private CellBet? _cellBet;
-
 
 		public CasinoViewModel(TableModel tableModel)
 		{
 			_table = tableModel;
 
-			_player = _table.player;
+			player = _table.player;
 
 			_SpinWheelCommand = new RelayCommand(execute: (obj) => SpinWheel(), obj => CheckAvalibilitySpin());
 
@@ -89,8 +78,6 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 		{
 			MakeBet();
 
-			if (_table.bet is null) _table.MakeLastBet(_betAmount);
-
 			_table.SpinWheel();
 
 			Application.Current.MainWindow.IsEnabled = false;
@@ -101,14 +88,9 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 		{
 			if (_cellBet is null) return false;
 
-			if (_betAmount <= 0) return false;
+			if (!_table.CheckRangeAmount(_betAmount)) return false;
 
-			if (!_player.CheckHasMoney(_betAmount)) return false;
-
-			if (_table.bet is null && !_player.CheckHasMoney(_table.lastBetPlayed?.amount ?? 0))
-			{
-				return false;
-			}
+			if (!player.CheckHasMoney(_betAmount)) return false;
 
 			return true;
 		}

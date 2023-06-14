@@ -1,20 +1,38 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+   
+    <!--Общий стиль шрифта для всех элементов-->
+    <Style x:Key="FontForEveryOne" TargetType="Control">
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
+        <Setter Property="FontSize" Value="18px"/>
 
-    <Style TargetType="Label">
-        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    
+    <!--Общий стиль для надписей-->
+    <Style x:Key="Label" TargetType="Label" BasedOn="{StaticResource FontForEveryOne}">
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="0px"/>
     </Style>
 
-    <Style TargetType="TextBox">
-        <Setter Property="FontSize" Value="18"/>
+    <!--Общий стиль для ввода текста-->
+    <Style x:Key="TextBox" TargetType="TextBox" BasedOn="{StaticResource FontForEveryOne}">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="CaretBrush" Value="White"/>
     </Style>
 
+    <!--Общий стиль для кнопок-->
+    <Style x:Key="Button" TargetType="Button" BasedOn="{StaticResource FontForEveryOne}">
+        
+    </Style>
+
+    <!--Стиль для label выводящий баланс-->
+    <Style x:Key="BalanceFormat" TargetType="Label" BasedOn="{StaticResource Label}">
+        <Setter Property="ContentStringFormat" Value="N"/>
+    </Style>
+
     <Style TargetType="Window">
-        <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
     </Style>
 
     <!--Стиль для прозрачной кнопки-->
@@ -28,22 +46,6 @@
             </Setter.Value>
         </Setter>
 
-    </Style>
-
-    <Style x:Key="Field">
-        <Style.Resources>
-            <Style TargetType="Rectangle">
-                <Setter Property="Fill" Value="HotPink"/>
-                <Setter Property="Opacity" Value="0.5"/>
-            </Style>
-        </Style.Resources>
-    </Style>
-
-    <!--Стиль для label выводящий баланс-->
-    <Style x:Key="BalanceFormat" TargetType="Label">
-        <Setter Property="ContentStringFormat" Value="N"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="18"/>
     </Style>
 
 </ResourceDictionary>

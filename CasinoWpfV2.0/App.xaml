@@ -2,12 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CasinoWpfV2._0"
-             StartupUri="MVVM/Views/Game.xaml">
+             StartupUri="MVVM/Views/Login.xaml">
+    
     <Application.Resources>
-        
-        <FontFamily x:Key="RobotoRegular">
-            /Design/Fontrs/Roboto-Regular.ttf
-        </FontFamily>
+
+        <FontFamily x:Key="Roboto">pack://application:,,,Design/Fonts/#Roboto</FontFamily>
+
+        <FontFamily x:Key="RobotoItalic">pack://application:,,,Design/Fonts/#Roboto Italic</FontFamily>
         
     </Application.Resources>
 </Application>

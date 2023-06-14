@@ -14,23 +14,23 @@ namespace RouletteLib
 
 		public Bet? bet { get; private set; }
 
-		public decimal minRate { get; private set; }
+		public decimal minAmmountBet { get; private set; }
 
-		public decimal maxRate { get; private set; }
+		public decimal maxAmmountBet { get; private set; }
 
 
-		public Table(decimal minRate = 1m, decimal maxRate = decimal.MaxValue)
+		public Table(decimal minAmmountBet = 1m, decimal maxAmmountBet = decimal.MaxValue)
 		{
-			if (minRate <= 0 || maxRate <= 0) throw new Exception("Ставки не могут быть отрицательными!");
+			if (minAmmountBet <= 0 || maxAmmountBet <= 0) throw new Exception("Диапозон ставок неккоректный!");
 
-			this.minRate = minRate;
+			this.minAmmountBet = minAmmountBet;
 
-			this.maxRate = maxRate;
+			this.maxAmmountBet = maxAmmountBet;
 		}
 
 		private void CheckAmountBet(decimal amount)
 		{
-			if (amount < minRate || amount > maxRate)
+			if (amount < minAmmountBet || amount > maxAmmountBet)
 				throw new Exception("Ставка выходит за диапозон принимаемых ставок столом.");
 		}
 

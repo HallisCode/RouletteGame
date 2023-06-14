@@ -9,21 +9,21 @@ namespace CasinoWpfV2._0.MVVM.Views
 	/// <summary>
 	/// Interaction logic for Game.xaml
 	/// </summary>
-	public partial class Game : Window
+	public partial class GameWindow : Window
 	{
 		private CasinoViewModel casinoViewModel;
 
-		public Game()
+		public GameWindow(PlayerModel player, decimal minAmmountBet, decimal maxAmmountBet)
 		{
 			InitializeComponent();
 
 			System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
-			PlayerModel player = new PlayerModel("Andrew", "Atamanov", 500000m);
 
 			WheelModel wheel = new WheelModel(Wheel);
 
-			TableModel table = new TableModel(player, wheel);
+			TableModel table = new TableModel(player, wheel, minAmmountBet, maxAmmountBet);
+
 
 			casinoViewModel = new CasinoViewModel(table);
 
@@ -37,27 +37,29 @@ namespace CasinoWpfV2._0.MVVM.Views
 
 			casinoViewModel.AcceptCellBet(cellBet);
 
+			if (casinoViewModel.chip is null) CreateChip();
+
 			MoveChip(cellBet);
 		}
 
 		private void MoveChip(CellBet cellBet)
 		{
-			if (casinoViewModel.chip is null)
-			{
-				Point spawnPoint = betAmount.TranslatePoint(new Point(0, 0), FieldChip);
-
-				spawnPoint.X += betAmount.RenderSize.Width / 2;
-				spawnPoint.Y += betAmount.RenderSize.Height / 2;
-
-				casinoViewModel.chip ??= new ChipModel(30d, 30d, FieldChip, spawnPoint);
-			}
-
 			Point pointMoveTo = cellBet.TranslatePoint(new Point(0, 0), FieldChip);
 
 			pointMoveTo.X += cellBet.RenderSize.Width / 2;
 			pointMoveTo.Y += cellBet.RenderSize.Height / 2;
 
-			casinoViewModel.chip.MoveTo(pointMoveTo);
+			casinoViewModel.chip?.MoveTo(pointMoveTo);
+		}
+
+		private ChipModel CreateChip()
+		{
+			Point spawnPoint = betAmount.TranslatePoint(new Point(0, 0), FieldChip);
+
+			spawnPoint.X += betAmount.RenderSize.Width / 2;
+			spawnPoint.Y += betAmount.RenderSize.Height / 2;
+
+			return casinoViewModel.chip = new ChipModel(30d, 30d, FieldChip, spawnPoint);
 		}
 	}
 }

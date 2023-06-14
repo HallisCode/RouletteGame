@@ -6,7 +6,7 @@ namespace CasinoWpfV2._0.MVVM.Models
 	/// <summary>
 	/// Реализует логику игрока.
 	/// </summary>
-	internal class PlayerModel : Model
+	public class PlayerModel : Model
 	{
 		public string name { get; private set; }
 
@@ -26,8 +26,20 @@ namespace CasinoWpfV2._0.MVVM.Models
 			}
 		}
 
+		public static bool CheckFullNameValidation(string name, string lastName)
+		{
+			if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName)) return false;
+
+			if (name.Length < 2 || name.Length > 14 ||
+				lastName.Length < 2 || lastName.Length > 14) return false;
+
+			return true;
+		}
+
 		public PlayerModel(string name, string lastName, decimal balance)
 		{
+			if (!CheckFullNameValidation(name, lastName)) throw new Exception("Неккоректные данные пользователя!");
+
 			this.name = name;
 
 			this.lastName = lastName;

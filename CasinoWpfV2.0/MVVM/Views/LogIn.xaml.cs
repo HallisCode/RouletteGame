@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using CasinoWpfV2._0.MVVM.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -17,11 +18,13 @@ namespace CasinoWpfV2._0.MVVM.Views
 	/// <summary>
 	/// Interaction logic for LogIn.xaml
 	/// </summary>
-	public partial class LogIn : Window
+	public partial class LogInWindow : Window
 	{
-		public LogIn()
+		public LogInWindow()
 		{
 			InitializeComponent();
+
+			DataContext = new LogInViewModel();
 		}
 	}
 }

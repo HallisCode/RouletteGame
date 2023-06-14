@@ -12,7 +12,7 @@ namespace CasinoWpfV2._0.MVVM.Models
 	/// <summary>
 	/// Реализует логику рулетки с 37 ячейками.
 	/// </summary>
-	internal class WheelModel
+	public class WheelModel
 	{
 		private Image _wheel;
 

@@ -8,7 +8,7 @@ using System;
 
 namespace CasinoWpfV2._0.MVVM.Models
 {
-	internal class ChipModel
+	public class ChipModel
 	{
 		private Image _image;
 

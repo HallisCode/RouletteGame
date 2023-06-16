@@ -137,8 +137,10 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 
 			gameWindow.Show();
 
+
 			Application.Current.Windows[0].Close();
 
+			Application.Current.MainWindow = gameWindow;
 		}
 
 		private bool CheckAvalibilityLogIn()

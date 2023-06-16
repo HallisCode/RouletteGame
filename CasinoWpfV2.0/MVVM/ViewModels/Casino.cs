@@ -4,6 +4,7 @@ using CasinoWpfV2._0.XamlTools.Controllers;
 using RouletteLib;
 using System;
 using System.Windows;
+using Application = System.Windows.Application;
 
 namespace CasinoWpfV2._0.MVVM.ViewModels
 {

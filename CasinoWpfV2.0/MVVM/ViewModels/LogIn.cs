@@ -145,7 +145,7 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 
 		private bool CheckAvalibilityLogIn()
 		{
-			if (!logInPlayerViewModel.CheckPlayerDataValidation() &&
+			if (!logInPlayerViewModel.CheckPlayerDataValidation() ||
 				!logInTableViewModel.CheckTableDataValidation())
 			{
 				return false;

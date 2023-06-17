@@ -93,13 +93,21 @@ namespace CasinoWpfV2._0.MVVM.ViewModels
 
 		public bool CheckTableDataValidation()
 		{
-			if (!TableModel.CheckValidityAmmountBet(minAmmountBet, maxAmmountBet))
+			if (!CheckAmmountBet(minAmmountBet, maxAmmountBet)) return false;
+
+			return true;
+		}
+
+		private bool CheckAmmountBet(params decimal[] ammountBets)
+		{
+			foreach (decimal ammount in ammountBets)
 			{
-				return false;
+				if (ammount < 0 || ammount > decimal.MaxValue) return false;
 			}
 
 			return true;
 		}
+
 	}
 
 

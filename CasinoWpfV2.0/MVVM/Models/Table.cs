@@ -30,9 +30,9 @@ namespace CasinoWpfV2._0.MVVM.Models
 			remove { wheel.CompletedSpin += value; }
 		}
 
-		public static bool CheckValidityAmmountBet(params decimal[] ammountBet)
+		public static bool CheckValidityAmmountBet(params decimal[] ammountBets)
 		{
-			foreach(decimal ammount in ammountBet)
+			foreach(decimal ammount in ammountBets)
 			{
 				if (ammount <= 0 || ammount > decimal.MaxValue) return false;
 			}
